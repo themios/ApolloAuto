@@ -2,6 +2,9 @@
 
 Monorepo for client website projects. Each customer gets a top-level folder with their site code, assets, and deployment config.
 
+**Local path:** `/home/tim/Applications/Websites`  
+**Remote:** https://github.com/themios/websites
+
 ## Structure
 
 ```
@@ -20,7 +23,7 @@ websites/
 ## Working on a site
 
 ```bash
-cd ApolloAuto   # or whichever customer folder
+cd /home/tim/Applications/Websites/ApolloAuto   # or whichever customer folder
 nvm use
 npm install
 npm run rebuild:native   # if better-sqlite3 needs rebuild for your Node version
