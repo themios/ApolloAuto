@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Purchase paperwork to review | Apollo Auto</title>
+  <meta name="description" content="Review actual Apollo Auto purchase forms before your visit. DMV forms, retail installment contract, Buyer's Guide, and disclosures with customer details removed." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/styles.css" />
+  <link rel="stylesheet" href="form-sample.css" />
+</head>
+<body>
+  <a class="skip-link" href="#forms-main">Skip to forms</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="../../index.html"><span class="logo-text">Apollo <strong>Auto</strong></span></a>
+      <nav class="nav" aria-label="Main">
+        <a href="../index.html">Guides</a>
+        <a href="../../help/index.html">Help</a>
+        <a href="../../index.html#contact">Contact</a>
+      </nav>
+      <a class="header-cta" href="tel:8054043873">(805) 404-3873</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+    <div class="mobile-nav" id="mobile-nav" hidden>
+      <a href="../index.html">← Buyer guides</a>
+      <a href="../../index.html#contact">Contact</a>
+    </div>
+  </header>
+
+  <main class="form-page" id="forms-main">
+    <div class="container">
+      <header class="article-header" style="padding-bottom: 1rem;">
+        <p class="eyebrow">Purchase paperwork</p>
+        <h1>Review the forms before you sign</h1>
+        <p class="article-meta">These are the actual forms from an Apollo Auto deal, split by section. Customer names, VINs, dollar amounts, and signatures have been removed so you can read the layout at home. Your deal may include additional pages.</p>
+      </header>
+
+      <aside class="resources-callout">
+        <p><strong>Not a contract.</strong> These copies are for education only. Tim will walk you through your real paperwork line by line when you visit.</p>
+      </aside>
+
+      <div id="forms-catalog" class="forms-catalog" aria-live="polite">
+        <p class="resources-loading">Loading forms…</p>
+      </div>
+
+      <p class="resources-footer-note"><a href="../index.html">← Back to all buyer guides</a></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><p class="copyright">© <span id="year"></span> Apollo Auto</p></div>
+  </footer>
+  <script src="forms-catalog.js"></script>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Review document | Apollo Auto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/styles.css" />
+  <link rel="stylesheet" href="form-viewer.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="../../index.html"><span class="logo-text">Apollo <strong>Auto</strong></span></a>
+      <a class="header-cta" href="index.html">All forms</a>
+    </div>
+  </header>
+
+  <main class="form-viewer-page">
+    <div class="container">
+      <div class="form-viewer-toolbar">
+        <div>
+          <a href="index.html">← Purchase paperwork</a>
+          <h1 id="doc-title">Review document</h1>
+          <p id="doc-note" class="form-viewer-note">Customer and vehicle details removed. Layout matches Apollo Auto deal paperwork.</p>
+        </div>
+        <div class="form-viewer-actions">
+          <a id="open-pdf" class="btn btn-outline btn-sm" href="#" target="_blank" rel="noopener">Open PDF</a>
+          <button type="button" class="btn btn-outline btn-sm" onclick="window.print()">Print</button>
+        </div>
+      </div>
+      <div class="form-viewer-frame-wrap">
+        <iframe id="pdf-frame" title="Purchase document preview" src="about:blank"></iframe>
+      </div>
+    </div>
+  </main>
+
+  <script src="view.js"></script>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

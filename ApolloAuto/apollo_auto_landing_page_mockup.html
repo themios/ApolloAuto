@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apollo Auto | Reliable Used Cars Without the Dealership Games</title>
+  <meta name="description" content="Apollo Auto is a family-owned used car dealership serving Ventura and Los Angeles counties with reliable vehicles, transparent pricing, trade-ins, and financing options for all credit types." />
+  <style>
+    :root {
+      --navy: #0f172a;
+      --blue: #2563eb;
+      --blue-dark: #1d4ed8;
+      --orange: #f97316;
+      --orange-dark: #ea580c;
+      --gray-50: #f8fafc;
+      --gray-100: #f1f5f9;
+      --gray-200: #e2e8f0;
+      --gray-500: #64748b;
+      --gray-700: #334155;
+      --white: #ffffff;
+      --green: #16a34a;
+      --shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--navy);
+      background: var(--gray-50);
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .announcement {
+      background: var(--navy);
+      color: var(--white);
+      font-size: 14px;
+      text-align: center;
+      padding: 10px 16px;
+    }
+
+    .announcement strong {
+      color: #fed7aa;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      font-size: 22px;
+      letter-spacing: -0.04em;
+    }
+
+    .logo-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 13px;
+      background: linear-gradient(135deg, var(--blue), var(--navy));
+      color: white;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      box-shadow: 0 8px 22px rgba(37, 99, 235, 0.25);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: var(--gray-700);
+      font-size: 15px;
+      font-weight: 650;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 999px;
+      padding: 13px 20px;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: white;
+      box-shadow: 0 12px 24px rgba(249, 115, 22, 0.28);
+    }
+
+    .btn-primary:hover {
+      background: var(--orange-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: var(--navy);
+      color: white;
+    }
+
+    .btn-light {
+      background: white;
+      color: var(--navy);
+      border: 1px solid var(--gray-200);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 82px 0 64px;
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.13), transparent 34%),
+        linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.06fr 0.94fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #eff6ff;
+      color: var(--blue-dark);
+      font-size: 14px;
+      font-weight: 850;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 0.96;
+      letter-spacing: -0.07em;
+      max-width: 720px;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: var(--gray-700);
+      max-width: 660px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .trust-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 650px;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--gray-700);
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .check {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #dcfce7;
+      color: var(--green);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      flex: 0 0 auto;
+    }
+
+    .lead-card {
+      background: white;
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--gray-200);
+      padding: 28px;
+      position: relative;
+    }
+
+    .lead-card:before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, rgba(249, 115, 22, 0.45), rgba(37, 99, 235, 0.2));
+      z-index: -1;
+      filter: blur(18px);
+      opacity: 0.55;
+    }
+
+    .lead-card h2 {
+      font-size: 30px;
+      letter-spacing: -0.04em;
+      margin-bottom: 8px;
+    }
+
+    .lead-card .sub {
+      color: var(--gray-500);
+      font-weight: 650;
+      margin-bottom: 20px;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    label {
+      display: grid;
+      gap: 7px;
+      font-size: 13px;
+      font-weight: 850;
+      color: var(--gray-700);
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid var(--gray-200);
+      border-radius: 16px;
+      padding: 14px 15px;
+      font: inherit;
+      color: var(--navy);
+      background: var(--gray-50);
+      outline: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+      background: white;
+    }
+
+    textarea {
+      min-height: 92px;
+      resize: vertical;
+    }
+
+    .full-width {
+      width: 100%;
+    }
+
+    .form-note {
+      font-size: 13px;
+      color: var(--gray-500);
+      text-align: center;
+      font-weight: 650;
+      margin-top: 12px;
+    }
+
+    .section {
+      padding: 70px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 30px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(32px, 4vw, 48px);
+      letter-spacing: -0.055em;
+      line-height: 1;
+      max-width: 700px;
+    }
+
+    .section-heading p {
+      color: var(--gray-500);
+      max-width: 430px;
+      font-weight: 650;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .proof-card {
+      background: white;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.05);
+    }
+
+    .proof-card strong {
+      display: block;
+      font-size: 34px;
+      letter-spacing: -0.05em;
+      margin-bottom: 6px;
+    }
+
+    .proof-card span {
+      color: var(--gray-500);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .inventory-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .vehicle-card {
+      background: white;
+      border: 1px solid var(--gray-200);
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .vehicle-image {
+      height: 190px;
+      background: linear-gradient(135deg, #cbd5e1, #f8fafc);
+      display: grid;
+      place-items: center;
+      color: var(--gray-500);
+      font-weight: 850;
+    }
+
+    .vehicle-body {
+      padding: 18px;
+    }
+
+    .tag {
+      display: inline-flex;
+      background: #fff7ed;
+      color: #c2410c;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .vehicle-body h3 {
+      font-size: 20px;
+      letter-spacing: -0.025em;
+      margin-bottom: 6px;
+    }
+
+    .vehicle-meta {
+      color: var(--gray-500);
+      font-weight: 650;
+      margin-bottom: 14px;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .price {
+      font-weight: 950;
+      font-size: 22px;
+      letter-spacing: -0.035em;
+    }
+
+    .mini-btn {
+      border: 1px solid var(--gray-200);
+      background: var(--gray-50);
+      border-radius: 999px;
+      padding: 10px 13px;
+      font-weight: 850;
+      font-size: 13px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .photo-block {
+      min-height: 420px;
+      border-radius: 30px;
+      background:
+        linear-gradient(rgba(15, 23, 42, 0.2), rgba(15, 23, 42, 0.45)),
+        linear-gradient(135deg, #94a3b8, #e2e8f0);
+      display: flex;
+      align-items: end;
+      padding: 28px;
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .photo-block h3 {
+      font-size: 30px;
+      letter-spacing: -0.045em;
+      max-width: 420px;
+    }
+
+    .benefit-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .benefit {
+      background: white;
+      border: 1px solid var(--gray-200);
+      border-radius: 20px;
+      padding: 18px;
+      display: flex;
+      gap: 13px;
+      align-items: flex-start;
+    }
+
+    .benefit h3 {
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+
+    .benefit p {
+      color: var(--gray-500);
+      font-weight: 600;
+    }
+
+    .finance-section {
+      background: var(--navy);
+      color: white;
+      border-radius: 36px;
+      padding: 46px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    .finance-section h2 {
+      font-size: clamp(34px, 4vw, 52px);
+      letter-spacing: -0.06em;
+      line-height: 1;
+      margin-bottom: 18px;
+    }
+
+    .finance-section p {
+      color: #cbd5e1;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .credit-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .credit-pill {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 13px;
+      font-weight: 800;
+    }
+
+    .process-grid, .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .process-card, .blog-card {
+      background: white;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+    }
+
+    .step-number {
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      background: var(--blue);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-weight: 950;
+      margin-bottom: 16px;
+    }
+
+    .process-card h3, .blog-card h3 {
+      font-size: 19px;
+      letter-spacing: -0.025em;
+      margin-bottom: 8px;
+    }
+
+    .process-card p, .blog-card p {
+      color: var(--gray-500);
+      font-weight: 600;
+    }
+
+    .blog-card .category {
+      color: var(--orange-dark);
+      font-size: 12px;
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+
+    .final-cta {
+      background: linear-gradient(135deg, var(--blue), var(--navy));
+      color: white;
+      border-radius: 38px;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 30px;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    .final-cta h2 {
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1;
+      letter-spacing: -0.06em;
+      margin-bottom: 14px;
+    }
+
+    .final-cta p {
+      color: #dbeafe;
+      font-size: 18px;
+      max-width: 620px;
+    }
+
+    .cta-box {
+      background: white;
+      color: var(--navy);
+      border-radius: 26px;
+      padding: 22px;
+    }
+
+    footer {
+      background: #020617;
+      color: white;
+      padding: 58px 0 90px;
+      margin-top: 70px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.8fr 1fr;
+      gap: 30px;
+    }
+
+    footer h3, footer h4 {
+      margin-bottom: 12px;
+    }
+
+    footer p, footer a {
+      color: #94a3b8;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .mobile-sticky {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 80;
+      background: white;
+      border-top: 1px solid var(--gray-200);
+      padding: 10px;
+      gap: 8px;
+      box-shadow: 0 -10px 30px rgba(15, 23, 42, 0.12);
+    }
+
+    .mobile-sticky .btn {
+      flex: 1;
+      padding: 12px 10px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 980px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-grid,
+      .split,
+      .finance-section,
+      .final-cta {
+        grid-template-columns: 1fr;
+      }
+
+      .proof-grid,
+      .inventory-grid,
+      .process-grid,
+      .blog-grid,
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .section-heading {
+        align-items: start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .announcement {
+        font-size: 12px;
+      }
+
+      .nav {
+        height: 68px;
+      }
+
+      .logo {
+        font-size: 19px;
+      }
+
+      .nav-actions .btn-light {
+        display: none;
+      }
+
+      .hero {
+        padding: 42px 0 36px;
+      }
+
+      .hero h1 {
+        font-size: 46px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .trust-list,
+      .proof-grid,
+      .inventory-grid,
+      .process-grid,
+      .blog-grid,
+      .credit-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .lead-card,
+      .finance-section,
+      .final-cta {
+        padding: 22px;
+        border-radius: 26px;
+      }
+
+      .section {
+        padding: 48px 0;
+      }
+
+      footer {
+        padding-bottom: 100px;
+      }
+
+      .mobile-sticky {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="announcement">
+    Family-owned used car dealership serving Ventura & Los Angeles counties. <strong>Call/Text Tim: (805) 404-3873</strong>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a href="#" class="logo" aria-label="Apollo Auto Home">
+        <span class="logo-mark">A</span>
+        <span>Apollo Auto</span>
+      </a>
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="#inventory">Inventory</a>
+        <a href="#financing">Financing</a>
+        <a href="#trade">Sell/Trade</a>
+        <a href="#tips">Car Buying Tips</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn-light" href="tel:8054043873">Call/Text</a>
+        <a class="btn btn-primary" href="#lead-form">Find My Car</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Reliable cars. Honest pricing. Financing that works.</div>
+          <h1>Reliable Used Cars Without the Dealership Games</h1>
+          <p>Apollo Auto helps everyday drivers, students, families, and commuters find affordable used cars with transparent pricing and financing options for all credit situations.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#inventory">Browse Inventory</a>
+            <a class="btn btn-secondary" href="#lead-form">Get Help Finding a Car</a>
+          </div>
+          <div class="trust-list">
+            <div class="trust-item"><span class="check">✓</span> Financing for all credit types</div>
+            <div class="trust-item"><span class="check">✓</span> No hidden add-on fees</div>
+            <div class="trust-item"><span class="check">✓</span> Trade-ins accepted</div>
+            <div class="trust-item"><span class="check">✓</span> Family-owned and operated</div>
+          </div>
+        </div>
+
+        <aside class="lead-card" id="lead-form">
+          <h2>Tell Us What You Need</h2>
+          <p class="sub">Simple info. No pressure. We’ll help you narrow down the right vehicle.</p>
+          <form class="form-grid">
+            <label>
+              Name
+              <input type="text" placeholder="Your name" />
+            </label>
+            <label>
+              Phone
+              <input type="tel" placeholder="Best number to call/text" />
+            </label>
+            <label>
+              What type of vehicle are you looking for?
+              <select>
+                <option>Select one</option>
+                <option>Reliable commuter car</option>
+                <option>Family SUV</option>
+                <option>Truck</option>
+                <option>Student / first car</option>
+                <option>Hybrid / fuel efficient</option>
+                <option>Not sure yet</option>
+              </select>
+            </label>
+            <label>
+              Monthly payment goal
+              <select>
+                <option>Select range</option>
+                <option>Under $250/mo</option>
+                <option>$250–$350/mo</option>
+                <option>$350–$450/mo</option>
+                <option>$450+/mo</option>
+                <option>Cash buyer</option>
+              </select>
+            </label>
+            <button class="btn btn-primary full-width" type="button">Let’s Find Your Car</button>
+          </form>
+          <p class="form-note">Tim from Apollo Auto will personally contact you.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="proof-grid">
+          <div class="proof-card"><strong>Family</strong><span>Owned dealership</span></div>
+          <div class="proof-card"><strong>All Credit</strong><span>Financing support</span></div>
+          <div class="proof-card"><strong>No Games</strong><span>Transparent pricing</span></div>
+          <div class="proof-card"><strong>Local</strong><span>Ventura & LA counties</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="inventory">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Featured Reliable Vehicles</h2>
+          <p>Keep this section focused. Show only a small set of strong options, then push visitors toward a conversation.</p>
+        </div>
+        <div class="inventory-grid">
+          <article class="vehicle-card">
+            <div class="vehicle-image">Vehicle Photo</div>
+            <div class="vehicle-body">
+              <span class="tag">Great Commuter</span>
+              <h3>2014 Toyota Prius Plug-in</h3>
+              <p class="vehicle-meta">155k miles · Hybrid · Fuel efficient</p>
+              <div class="price-row"><span class="price">$8,995</span><a class="mini-btn" href="#lead-form">Check Availability</a></div>
+            </div>
+          </article>
+          <article class="vehicle-card">
+            <div class="vehicle-image">Vehicle Photo</div>
+            <div class="vehicle-body">
+              <span class="tag">Family Van</span>
+              <h3>2014 Honda Odyssey Touring</h3>
+              <p class="vehicle-meta">V6 · Minivan · Family-ready</p>
+              <div class="price-row"><span class="price">Ask Price</span><a class="mini-btn" href="#lead-form">Check Availability</a></div>
+            </div>
+          </article>
+          <article class="vehicle-card">
+            <div class="vehicle-image">Vehicle Photo</div>
+            <div class="vehicle-body">
+              <span class="tag">Affordable Sedan</span>
+              <h3>2013 Mazda MAZDA3</h3>
+              <p class="vehicle-meta">145k miles · 33 MPG highway</p>
+              <div class="price-row"><span class="price">$6,495</span><a class="mini-btn" href="#lead-form">Check Availability</a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container split">
+        <div class="photo-block">
+          <h3>A small, family-owned dealership built around trust, not pressure.</h3>
+        </div>
+        <div>
+          <div class="section-heading" style="margin-bottom: 22px;">
+            <h2>Why Buyers Choose Apollo Auto</h2>
+          </div>
+          <div class="benefit-list">
+            <div class="benefit"><span class="check">✓</span><div><h3>Transparent pricing</h3><p>No surprise add-ons or dealership games. Clear pricing and direct communication.</p></div></div>
+            <div class="benefit"><span class="check">✓</span><div><h3>Financing help for real life</h3><p>Good credit, bad credit, first-time buyer, bankruptcy, repo history, or low credit score.</p></div></div>
+            <div class="benefit"><span class="check">✓</span><div><h3>Reliable daily-driver focus</h3><p>Affordable cars, trucks, SUVs, vans, and commuters selected for practical everyday use.</p></div></div>
+            <div class="benefit"><span class="check">✓</span><div><h3>Direct access to the owner</h3><p>Call or text Tim directly instead of being passed around a large dealership.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="financing">
+      <div class="container">
+        <div class="finance-section">
+          <div>
+            <h2>Financing Solutions for Real Life</h2>
+            <p>Buying a car should not feel embarrassing or complicated. Tell us your situation and we’ll help you understand your options.</p>
+            <a class="btn btn-primary" href="#lead-form">See What Options You Qualify For</a>
+          </div>
+          <div class="credit-grid">
+            <div class="credit-pill">Good Credit</div>
+            <div class="credit-pill">Bad Credit</div>
+            <div class="credit-pill">First-Time Buyers</div>
+            <div class="credit-pill">Low Credit Score</div>
+            <div class="credit-pill">Bankruptcy History</div>
+            <div class="credit-pill">Repossession History</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Simple Buying Process</h2>
+          <p>The process should feel easy before the customer ever calls you.</p>
+        </div>
+        <div class="process-grid">
+          <div class="process-card"><div class="step-number">1</div><h3>Tell us what you need</h3><p>Vehicle type, budget, payment goal, and contact preference.</p></div>
+          <div class="process-card"><div class="step-number">2</div><h3>Review smart options</h3><p>We help narrow down vehicles that actually fit your situation.</p></div>
+          <div class="process-card"><div class="step-number">3</div><h3>Financing support</h3><p>We work through options based on your credit and budget.</p></div>
+          <div class="process-card"><div class="step-number">4</div><h3>Drive home prepared</h3><p>No pressure. No confusion. Just a practical path to the right vehicle.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tips">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Car Buying Tips From a Local Dealer</h2>
+          <p>This is where Apollo Auto builds SEO authority and trust before the buyer submits a lead.</p>
+        </div>
+        <div class="blog-grid">
+          <article class="blog-card"><div class="category">Buying Advice</div><h3>Best Used Cars Under $10,000</h3><p>How to choose a reliable budget car without buying someone else’s problem.</p></article>
+          <article class="blog-card"><div class="category">Financing</div><h3>Can I Buy a Car With Bad Credit?</h3><p>What buyers should know before applying for financing.</p></article>
+          <article class="blog-card"><div class="category">Reliability</div><h3>What Mileage Is Too High?</h3><p>A practical guide to mileage, maintenance, and vehicle condition.</p></article>
+          <article class="blog-card"><div class="category">Local Guide</div><h3>Best Commuter Cars in Ventura County</h3><p>Fuel-efficient cars for daily driving in Southern California.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="trade">
+      <div class="container final-cta">
+        <div>
+          <h2>Need a Reliable Vehicle?</h2>
+          <p>Start with a simple conversation. Tell us what you need, your budget, and whether you have a trade-in. We’ll help you figure out the next best step.</p>
+        </div>
+        <div class="cta-box">
+          <form class="form-grid">
+            <label>Name<input type="text" placeholder="Your name" /></label>
+            <label>Phone<input type="tel" placeholder="Best number" /></label>
+            <label>What do you need?<textarea placeholder="Example: I need a reliable SUV under $12k and I have a trade-in."></textarea></label>
+            <button class="btn btn-primary full-width" type="button">Send My Request</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="container footer-grid">
+      <div>
+        <h3>Apollo Auto</h3>
+        <p>Reliable used cars, honest pricing, and financing solutions for all credit types.</p>
+        <p>Call/Text: (805) 404-3873</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <a href="#inventory">Inventory</a>
+        <a href="#financing">Financing</a>
+        <a href="#trade">Sell or Trade</a>
+      </div>
+      <div>
+        <h4>Helpful Links</h4>
+        <a href="#tips">Car Buying Tips</a>
+        <a href="#lead-form">Find My Car</a>
+        <a href="https://www.facebook.com/TOApolloAuto/">Facebook</a>
+      </div>
+      <div>
+        <h4>Local SEO Areas</h4>
+        <p>Used Cars in Simi Valley</p>
+        <p>Used Cars in Thousand Oaks</p>
+        <p>Used Cars in Ventura County</p>
+        <p>Bad Credit Car Financing</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-sticky" aria-label="Mobile quick actions">
+    <a class="btn btn-secondary" href="tel:8054043873">Call/Text</a>
+    <a class="btn btn-primary" href="#lead-form">Find My Car</a>
+  </div>
+</body>
+</html>

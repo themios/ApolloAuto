@@ -1,0 +1,181 @@
+{
+  "categories": [
+    {
+      "id": "before-visit",
+      "title": "Before your visit",
+      "intro": "Get ready at home so your appointment goes smoothly."
+    },
+    {
+      "id": "financing",
+      "title": "Financing & credit",
+      "intro": "How applications work and what lenders typically look at."
+    },
+    {
+      "id": "paperwork",
+      "title": "Paperwork & contracts",
+      "intro": "Know what you are signing before you sit down at the desk."
+    },
+    {
+      "id": "sample-forms",
+      "title": "Forms to review",
+      "intro": "Actual Apollo Auto deal paperwork with customer and vehicle details removed."
+    },
+    {
+      "id": "trade-in",
+      "title": "Trade-ins",
+      "intro": "How trade-ins work and how to get your car ready."
+    },
+    {
+      "id": "after-purchase",
+      "title": "After you drive home",
+      "intro": "Registration, insurance, and what to keep from your file."
+    }
+  ],
+  "documents": [
+    {
+      "id": "what-to-bring",
+      "category": "before-visit",
+      "title": "What to bring to the dealership",
+      "description": "A simple checklist: ID, proof of income, proof of address, and insurance info.",
+      "file": null,
+      "url": null,
+      "comingSoon": true
+    },
+    {
+      "id": "first-visit",
+      "category": "before-visit",
+      "title": "Your first visit: what to expect",
+      "description": "From test drive to talking numbers, step by step with no pressure.",
+      "file": null,
+      "url": null,
+      "comingSoon": true
+    },
+    {
+      "id": "financing-overview",
+      "category": "financing",
+      "title": "How financing works at Apollo Auto",
+      "description": "Application basics, approval timelines, and what affects your payment.",
+      "file": null,
+      "url": "../blog/post.html?slug=bad-credit-financing",
+      "comingSoon": false,
+      "linkLabel": "Read online"
+    },
+    {
+      "id": "credit-explained",
+      "category": "financing",
+      "title": "Credit scores explained (plain English)",
+      "description": "What good, fair, and rebuilding credit mean when you buy a used car.",
+      "file": null,
+      "url": null,
+      "comingSoon": true
+    },
+    {
+      "id": "contract-walkthrough",
+      "category": "paperwork",
+      "title": "Purchase paperwork walkthrough",
+      "description": "What each major document is for before you sign.",
+      "file": null,
+      "url": "forms/index.html",
+      "comingSoon": false,
+      "linkLabel": "Review all forms"
+    },
+    {
+      "id": "common-contract-terms",
+      "category": "paperwork",
+      "title": "Common contract terms glossary",
+      "description": "APR, amount financed, down payment, and other words you will see on the contract.",
+      "file": null,
+      "url": null,
+      "comingSoon": true
+    },
+    {
+      "id": "buyers-guide-disclosure",
+      "category": "paperwork",
+      "title": "Buyer's Guide & disclosure forms",
+      "description": "What federal and state disclosure forms tell you about the vehicle.",
+      "file": "../documents/contract-sections/buyers-guide.pdf",
+      "url": null,
+      "comingSoon": false,
+      "linkLabel": "Review Buyer's Guide"
+    },
+    {
+      "id": "reg-262-transfer",
+      "category": "sample-forms",
+      "title": "REG 262 — Transfer & reassignment",
+      "description": "California DMV bill of sale and odometer disclosure.",
+      "file": "../documents/contract-sections/reg-262-transfer-form.pdf",
+      "url": null,
+      "comingSoon": false,
+      "linkLabel": "Review document"
+    },
+    {
+      "id": "reg-51-report-of-sale",
+      "category": "sample-forms",
+      "title": "REG 51 — Report of sale",
+      "description": "Used vehicle report of sale (dealer and DMV copies).",
+      "file": "../documents/contract-sections/reg-51-report-of-sale.pdf",
+      "url": null,
+      "comingSoon": false,
+      "linkLabel": "Review document"
+    },
+    {
+      "id": "risc-full",
+      "category": "sample-forms",
+      "title": "Retail installment contract — Page 1",
+      "description": "Truth-in-lending, insurance statement, and vehicle description.",
+      "file": "../documents/contract-sections/retail-installment-contract-page-1.pdf",
+      "url": "forms/index.html#financing",
+      "comingSoon": false,
+      "linkLabel": "Review document"
+    },
+    {
+      "id": "due-bill",
+      "category": "sample-forms",
+      "title": "Due bill — work & accessories",
+      "description": "Promised reconditioning and accessories at time of sale.",
+      "file": "../documents/contract-sections/due-bill.pdf",
+      "url": null,
+      "comingSoon": false,
+      "linkLabel": "Review document"
+    },
+    {
+      "id": "pre-contract-disclosure",
+      "category": "sample-forms",
+      "title": "Pre-contract disclosure",
+      "description": "Optional products listed before you sign the installment contract.",
+      "file": "../documents/contract-sections/pre-contract-disclosure.pdf",
+      "url": null,
+      "comingSoon": false,
+      "linkLabel": "Review document"
+    },
+    {
+      "id": "contract-cancellation-option",
+      "category": "sample-forms",
+      "title": "Contract cancellation option",
+      "description": "Two-day cancellation option for eligible used vehicle purchases.",
+      "file": "../documents/contract-sections/contract-cancellation-option.pdf",
+      "url": null,
+      "comingSoon": false,
+      "linkLabel": "Review document"
+    },
+    {
+      "id": "trade-in-guide",
+      "category": "trade-in",
+      "title": "Trade-in guide",
+      "description": "How we value your trade and what to do before you bring it in.",
+      "file": null,
+      "url": "../blog/post.html?slug=trade-in-tips",
+      "comingSoon": false,
+      "linkLabel": "Read online"
+    },
+    {
+      "id": "after-sale-checklist",
+      "category": "after-purchase",
+      "title": "After-sale checklist",
+      "description": "Insurance, registration, and documents to keep in your glove box.",
+      "file": null,
+      "url": null,
+      "comingSoon": true
+    }
+  ]
+}

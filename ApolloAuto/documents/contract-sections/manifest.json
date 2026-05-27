@@ -1,0 +1,173 @@
+{
+  "source": "21 Sentra Contract - 8293.pdf",
+  "note": "Customer and vehicle information redacted. Dealer form layouts preserved from actual deal paperwork.",
+  "sections": [
+    {
+      "id": "reg-262-transfer",
+      "file": "reg-262-transfer-form.pdf",
+      "title": "REG 262 \u2014 Vehicle transfer & reassignment",
+      "description": "California DMV bill of sale, odometer disclosure, and buyer/seller signatures.",
+      "pages": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "reg-51-report-of-sale",
+      "file": "reg-51-report-of-sale.pdf",
+      "title": "REG 51 \u2014 Report of sale (used vehicle)",
+      "description": "Dealer and DMV copies of the used vehicle report of sale.",
+      "pages": [
+        3,
+        4
+      ]
+    },
+    {
+      "id": "title-reassignment",
+      "file": "title-reassignment.pdf",
+      "title": "Title reassignment (sample layout)",
+      "description": "Prior-state title and dealer reassignment pages from the deal jacket.",
+      "pages": [
+        5,
+        6
+      ]
+    },
+    {
+      "id": "reg-396-wholesale",
+      "file": "reg-396-wholesale-report.pdf",
+      "title": "REG 396 \u2014 Wholesale report of sale",
+      "description": "Wholesale odometer disclosure and dealer-to-dealer report of sale.",
+      "pages": [
+        7
+      ]
+    },
+    {
+      "id": "reg-31-verification",
+      "file": "reg-31-verification.pdf",
+      "title": "REG 31 \u2014 Verification of vehicle",
+      "description": "VIN verification form and California BTM reference codes.",
+      "pages": [
+        8,
+        9
+      ]
+    },
+    {
+      "id": "smog-check-vir",
+      "file": "smog-check-vir.pdf",
+      "title": "Smog Check \u2014 Vehicle inspection report",
+      "description": "California smog inspection results form (layout sample).",
+      "pages": [
+        10
+      ]
+    },
+    {
+      "id": "risc-page-1",
+      "file": "retail-installment-contract-page-1.pdf",
+      "title": "Retail installment contract \u2014 Page 1",
+      "description": "Truth-in-lending disclosures, insurance statement, and vehicle description.",
+      "pages": [
+        11
+      ]
+    },
+    {
+      "id": "risc-page-2",
+      "file": "retail-installment-contract-page-2.pdf",
+      "title": "Retail installment contract \u2014 Page 2",
+      "description": "Itemization of amount financed, optional products, and trade-in details.",
+      "pages": [
+        12
+      ]
+    },
+    {
+      "id": "risc-page-3",
+      "file": "retail-installment-contract-page-3.pdf",
+      "title": "Retail installment contract \u2014 Page 3",
+      "description": "Finance charge, payments, security interest, and default provisions.",
+      "pages": [
+        13
+      ]
+    },
+    {
+      "id": "risc-page-4",
+      "file": "retail-installment-contract-page-4.pdf",
+      "title": "Retail installment contract \u2014 Page 4",
+      "description": "Repossession, warranties, credit reporting, and servicing contacts.",
+      "pages": [
+        14
+      ]
+    },
+    {
+      "id": "risc-page-5",
+      "file": "retail-installment-contract-page-5.pdf",
+      "title": "Retail installment contract \u2014 Page 5",
+      "description": "Seller's right to cancel and arbitration provision.",
+      "pages": [
+        15
+      ]
+    },
+    {
+      "id": "risc-page-6",
+      "file": "retail-installment-contract-page-6.pdf",
+      "title": "Retail installment contract \u2014 Page 6",
+      "description": "Insurance notice, buyer acknowledgements, guaranty, and assignment.",
+      "pages": [
+        16
+      ]
+    },
+    {
+      "id": "language-acknowledgement",
+      "file": "language-acknowledgement.pdf",
+      "title": "California language acknowledgement",
+      "description": "Confirms the language in which the contract was negotiated.",
+      "pages": [
+        17
+      ]
+    },
+    {
+      "id": "due-bill",
+      "file": "due-bill.pdf",
+      "title": "Due bill \u2014 work & accessories",
+      "description": "Promised reconditioning, accessories, and as-is disclosures at time of sale.",
+      "pages": [
+        18
+      ]
+    },
+    {
+      "id": "buyers-guide",
+      "file": "buyers-guide.pdf",
+      "title": "FTC Buyer's Guide (window form)",
+      "description": "Federal used-vehicle warranty disclosure \u2014 front and back.",
+      "pages": [
+        19,
+        20
+      ]
+    },
+    {
+      "id": "agreement-provide-insurance",
+      "file": "agreement-provide-insurance.pdf",
+      "title": "Agreement to provide insurance",
+      "description": "Insurance requirements, coverage checkboxes, and loss payee block.",
+      "pages": [
+        21
+      ]
+    },
+    {
+      "id": "pre-contract-disclosure",
+      "file": "pre-contract-disclosure.pdf",
+      "title": "Pre-contract disclosure (California)",
+      "description": "Optional goods and services listed before you sign the installment contract.",
+      "pages": [
+        22
+      ]
+    },
+    {
+      "id": "contract-cancellation-option",
+      "file": "contract-cancellation-option.pdf",
+      "title": "Contract cancellation option agreement",
+      "description": "Two-day cancellation option for eligible used vehicle purchases under California law.",
+      "pages": [
+        23
+      ]
+    }
+  ]
+}

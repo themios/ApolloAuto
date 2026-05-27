@@ -1,0 +1,22 @@
+# OS / editor
+.DS_Store
+*.swp
+
+# Secrets (each customer folder may have its own .env)
+.env
+.env.*
+
+# Dependencies & build artifacts (per-project)
+node_modules/
+.venv*/
+.venv-*/
+
+# Local databases
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+
+# Temp / generated
+documents/.tmp-pages/
+graphify-out/cache/
