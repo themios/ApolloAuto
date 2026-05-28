@@ -1,0 +1,667 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "server.ts",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/server.ts",
+      "source_location": "L1",
+      "id": "home_tim_applications_websites_apolloauto_aistudio_server_ts",
+      "community": 3,
+      "norm_label": "server.ts"
+    },
+    {
+      "label": "getGeminiClient()",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/server.ts",
+      "source_location": "L50",
+      "id": "server_getgeminiclient",
+      "community": 3,
+      "norm_label": "getgeminiclient()"
+    },
+    {
+      "label": "startServer()",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/server.ts",
+      "source_location": "L258",
+      "id": "server_startserver",
+      "community": 3,
+      "norm_label": "startserver()"
+    },
+    {
+      "label": "vite.config.ts",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/vite.config.ts",
+      "source_location": "L1",
+      "id": "home_tim_applications_websites_apolloauto_aistudio_vite_config_ts",
+      "community": 13,
+      "norm_label": "vite.config.ts"
+    },
+    {
+      "label": "main.tsx",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/main.tsx",
+      "source_location": "L1",
+      "id": "home_tim_applications_websites_apolloauto_aistudio_src_main_tsx",
+      "community": 0,
+      "norm_label": "main.tsx"
+    },
+    {
+      "label": "types.ts",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/types.ts",
+      "source_location": "L1",
+      "id": "home_tim_applications_websites_apolloauto_aistudio_src_types_ts",
+      "community": 14,
+      "norm_label": "types.ts"
+    },
+    {
+      "label": "App.tsx",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/App.tsx",
+      "source_location": "L1",
+      "id": "home_tim_applications_websites_apolloauto_aistudio_src_app_tsx",
+      "community": 0,
+      "norm_label": "app.tsx"
+    },
+    {
+      "label": "fetchFeed()",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/App.tsx",
+      "source_location": "L35",
+      "id": "app_fetchfeed",
+      "community": 0,
+      "norm_label": "fetchfeed()"
+    },
+    {
+      "label": "fetchLeads()",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/App.tsx",
+      "source_location": "L47",
+      "id": "app_fetchleads",
+      "community": 0,
+      "norm_label": "fetchleads()"
+    },
+    {
+      "label": "navigateTo()",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/App.tsx",
+      "source_location": "L60",
+      "id": "app_navigateto",
+      "community": 0,
+      "norm_label": "navigateto()"
+    },
+    {
+      "label": "PageHero.tsx",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/PageHero.tsx",
+      "source_location": "L1",
+      "id": "home_tim_applications_websites_apolloauto_aistudio_src_components_pagehero_tsx",
+      "community": 15,
+      "norm_label": "pagehero.tsx"
+    },
+    {
+      "label": "ShopByNeedCarousel.tsx",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/ShopByNeedCarousel.tsx",
+      "source_location": "L1",
+      "id": "home_tim_applications_websites_apolloauto_aistudio_src_components_shopbyneedcarousel_tsx",
+      "community": 5,
+      "norm_label": "shopbyneedcarousel.tsx"
+    },
+    {
+      "label": "ShopByNeedCarousel()",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/ShopByNeedCarousel.tsx",
+      "source_location": "L43",
+      "id": "shopbyneedcarousel_shopbyneedcarousel",
+      "community": 5,
+      "norm_label": "shopbyneedcarousel()"
+    },
+    {
+      "label": "TestimonialCarousel.tsx",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/TestimonialCarousel.tsx",
+      "source_location": "L1",
+      "id": "home_tim_applications_websites_apolloauto_aistudio_src_components_testimonialcarousel_tsx",
+      "community": 2,
+      "norm_label": "testimonialcarousel.tsx"
+    },
+    {
+      "label": "listener()",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/TestimonialCarousel.tsx",
+      "source_location": "L70",
+      "id": "testimonialcarousel_listener",
+      "community": 2,
+      "norm_label": "listener()"
+    },
+    {
+      "label": "handlePrev()",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/TestimonialCarousel.tsx",
+      "source_location": "L93",
+      "id": "testimonialcarousel_handleprev",
+      "community": 2,
+      "norm_label": "handleprev()"
+    },
+    {
+      "label": "handleNext()",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/TestimonialCarousel.tsx",
+      "source_location": "L97",
+      "id": "testimonialcarousel_handlenext",
+      "community": 2,
+      "norm_label": "handlenext()"
+    },
+    {
+      "label": "ContactForm.tsx",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/ContactForm.tsx",
+      "source_location": "L1",
+      "id": "home_tim_applications_websites_apolloauto_aistudio_src_components_contactform_tsx",
+      "community": 6,
+      "norm_label": "contactform.tsx"
+    },
+    {
+      "label": "handleSubmit()",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/ContactForm.tsx",
+      "source_location": "L40",
+      "id": "contactform_handlesubmit",
+      "community": 6,
+      "norm_label": "handlesubmit()"
+    },
+    {
+      "label": "AIAssistant.tsx",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/AIAssistant.tsx",
+      "source_location": "L1",
+      "id": "home_tim_applications_websites_apolloauto_aistudio_src_components_aiassistant_tsx",
+      "community": 4,
+      "norm_label": "aiassistant.tsx"
+    },
+    {
+      "label": "parseLineWithLinks()",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/AIAssistant.tsx",
+      "source_location": "L19",
+      "id": "aiassistant_parselinewithlinks",
+      "community": 4,
+      "norm_label": "parselinewithlinks()"
+    },
+    {
+      "label": "handleSendMessage()",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/AIAssistant.tsx",
+      "source_location": "L82",
+      "id": "aiassistant_handlesendmessage",
+      "community": 4,
+      "norm_label": "handlesendmessage()"
+    },
+    {
+      "label": "FinancingCalculator.tsx",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/FinancingCalculator.tsx",
+      "source_location": "L1",
+      "id": "home_tim_applications_websites_apolloauto_aistudio_src_components_financingcalculator_tsx",
+      "community": 7,
+      "norm_label": "financingcalculator.tsx"
+    },
+    {
+      "label": "applyPresetProfile()",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/FinancingCalculator.tsx",
+      "source_location": "L53",
+      "id": "financingcalculator_applypresetprofile",
+      "community": 7,
+      "norm_label": "applypresetprofile()"
+    },
+    {
+      "label": "MobileTabBar.tsx",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/MobileTabBar.tsx",
+      "source_location": "L1",
+      "id": "home_tim_applications_websites_apolloauto_aistudio_src_components_mobiletabbar_tsx",
+      "community": 8,
+      "norm_label": "mobiletabbar.tsx"
+    },
+    {
+      "label": "MobileTabBar()",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/MobileTabBar.tsx",
+      "source_location": "L9",
+      "id": "mobiletabbar_mobiletabbar",
+      "community": 8,
+      "norm_label": "mobiletabbar()"
+    },
+    {
+      "label": "PathwayTiles.tsx",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/PathwayTiles.tsx",
+      "source_location": "L1",
+      "id": "home_tim_applications_websites_apolloauto_aistudio_src_components_pathwaytiles_tsx",
+      "community": 9,
+      "norm_label": "pathwaytiles.tsx"
+    },
+    {
+      "label": "PathwayTiles()",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/PathwayTiles.tsx",
+      "source_location": "L59",
+      "id": "pathwaytiles_pathwaytiles",
+      "community": 9,
+      "norm_label": "pathwaytiles()"
+    },
+    {
+      "label": "RevealOnScroll.tsx",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/RevealOnScroll.tsx",
+      "source_location": "L1",
+      "id": "home_tim_applications_websites_apolloauto_aistudio_src_components_revealonscroll_tsx",
+      "community": 10,
+      "norm_label": "revealonscroll.tsx"
+    },
+    {
+      "label": "RevealOnScroll()",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/RevealOnScroll.tsx",
+      "source_location": "L11",
+      "id": "revealonscroll_revealonscroll",
+      "community": 10,
+      "norm_label": "revealonscroll()"
+    },
+    {
+      "label": "Navigation.tsx",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/Navigation.tsx",
+      "source_location": "L1",
+      "id": "home_tim_applications_websites_apolloauto_aistudio_src_components_navigation_tsx",
+      "community": 11,
+      "norm_label": "navigation.tsx"
+    },
+    {
+      "label": "handleScroll()",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/Navigation.tsx",
+      "source_location": "L15",
+      "id": "navigation_handlescroll",
+      "community": 11,
+      "norm_label": "handlescroll()"
+    },
+    {
+      "label": "HeroDecor.tsx",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/HeroDecor.tsx",
+      "source_location": "L1",
+      "id": "home_tim_applications_websites_apolloauto_aistudio_src_components_herodecor_tsx",
+      "community": 12,
+      "norm_label": "herodecor.tsx"
+    },
+    {
+      "label": "HeroDecor()",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/HeroDecor.tsx",
+      "source_location": "L2",
+      "id": "herodecor_herodecor",
+      "community": 12,
+      "norm_label": "herodecor()"
+    },
+    {
+      "label": "AdminPanel.tsx",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/AdminPanel.tsx",
+      "source_location": "L1",
+      "id": "home_tim_applications_websites_apolloauto_aistudio_src_components_adminpanel_tsx",
+      "community": 1,
+      "norm_label": "adminpanel.tsx"
+    },
+    {
+      "label": "handleLogin()",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/AdminPanel.tsx",
+      "source_location": "L52",
+      "id": "adminpanel_handlelogin",
+      "community": 1,
+      "norm_label": "handlelogin()"
+    },
+    {
+      "label": "handleLogout()",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/AdminPanel.tsx",
+      "source_location": "L77",
+      "id": "adminpanel_handlelogout",
+      "community": 1,
+      "norm_label": "handlelogout()"
+    },
+    {
+      "label": "fetchLeads()",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/AdminPanel.tsx",
+      "source_location": "L84",
+      "id": "adminpanel_fetchleads",
+      "community": 1,
+      "norm_label": "fetchleads()"
+    },
+    {
+      "label": "handlePostAnnouncement()",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/AdminPanel.tsx",
+      "source_location": "L100",
+      "id": "adminpanel_handlepostannouncement",
+      "community": 1,
+      "norm_label": "handlepostannouncement()"
+    },
+    {
+      "label": "ContractViewer.tsx",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/ContractViewer.tsx",
+      "source_location": "L1",
+      "id": "home_tim_applications_websites_apolloauto_aistudio_src_components_contractviewer_tsx",
+      "community": 16,
+      "norm_label": "contractviewer.tsx"
+    },
+    {
+      "label": "TrustPillars.tsx",
+      "file_type": "code",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/TrustPillars.tsx",
+      "source_location": "L1",
+      "id": "home_tim_applications_websites_apolloauto_aistudio_src_components_trustpillars_tsx",
+      "community": 17,
+      "norm_label": "trustpillars.tsx"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/server.ts",
+      "source_location": "L50",
+      "weight": 1.0,
+      "_src": "home_tim_applications_websites_apolloauto_aistudio_server_ts",
+      "_tgt": "server_getgeminiclient",
+      "source": "home_tim_applications_websites_apolloauto_aistudio_server_ts",
+      "target": "server_getgeminiclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/server.ts",
+      "source_location": "L258",
+      "weight": 1.0,
+      "_src": "home_tim_applications_websites_apolloauto_aistudio_server_ts",
+      "_tgt": "server_startserver",
+      "source": "home_tim_applications_websites_apolloauto_aistudio_server_ts",
+      "target": "server_startserver",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/main.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_src": "home_tim_applications_websites_apolloauto_aistudio_src_main_tsx",
+      "_tgt": "home_tim_applications_websites_apolloauto_aistudio_src_app_tsx",
+      "source": "home_tim_applications_websites_apolloauto_aistudio_src_main_tsx",
+      "target": "home_tim_applications_websites_apolloauto_aistudio_src_app_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/App.tsx",
+      "source_location": "L35",
+      "weight": 1.0,
+      "_src": "home_tim_applications_websites_apolloauto_aistudio_src_app_tsx",
+      "_tgt": "app_fetchfeed",
+      "source": "home_tim_applications_websites_apolloauto_aistudio_src_app_tsx",
+      "target": "app_fetchfeed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/App.tsx",
+      "source_location": "L47",
+      "weight": 1.0,
+      "_src": "home_tim_applications_websites_apolloauto_aistudio_src_app_tsx",
+      "_tgt": "app_fetchleads",
+      "source": "home_tim_applications_websites_apolloauto_aistudio_src_app_tsx",
+      "target": "app_fetchleads",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/App.tsx",
+      "source_location": "L60",
+      "weight": 1.0,
+      "_src": "home_tim_applications_websites_apolloauto_aistudio_src_app_tsx",
+      "_tgt": "app_navigateto",
+      "source": "home_tim_applications_websites_apolloauto_aistudio_src_app_tsx",
+      "target": "app_navigateto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/ShopByNeedCarousel.tsx",
+      "source_location": "L43",
+      "weight": 1.0,
+      "_src": "home_tim_applications_websites_apolloauto_aistudio_src_components_shopbyneedcarousel_tsx",
+      "_tgt": "shopbyneedcarousel_shopbyneedcarousel",
+      "source": "home_tim_applications_websites_apolloauto_aistudio_src_components_shopbyneedcarousel_tsx",
+      "target": "shopbyneedcarousel_shopbyneedcarousel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/TestimonialCarousel.tsx",
+      "source_location": "L70",
+      "weight": 1.0,
+      "_src": "home_tim_applications_websites_apolloauto_aistudio_src_components_testimonialcarousel_tsx",
+      "_tgt": "testimonialcarousel_listener",
+      "source": "home_tim_applications_websites_apolloauto_aistudio_src_components_testimonialcarousel_tsx",
+      "target": "testimonialcarousel_listener",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/TestimonialCarousel.tsx",
+      "source_location": "L93",
+      "weight": 1.0,
+      "_src": "home_tim_applications_websites_apolloauto_aistudio_src_components_testimonialcarousel_tsx",
+      "_tgt": "testimonialcarousel_handleprev",
+      "source": "home_tim_applications_websites_apolloauto_aistudio_src_components_testimonialcarousel_tsx",
+      "target": "testimonialcarousel_handleprev",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/TestimonialCarousel.tsx",
+      "source_location": "L97",
+      "weight": 1.0,
+      "_src": "home_tim_applications_websites_apolloauto_aistudio_src_components_testimonialcarousel_tsx",
+      "_tgt": "testimonialcarousel_handlenext",
+      "source": "home_tim_applications_websites_apolloauto_aistudio_src_components_testimonialcarousel_tsx",
+      "target": "testimonialcarousel_handlenext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/ContactForm.tsx",
+      "source_location": "L40",
+      "weight": 1.0,
+      "_src": "home_tim_applications_websites_apolloauto_aistudio_src_components_contactform_tsx",
+      "_tgt": "contactform_handlesubmit",
+      "source": "home_tim_applications_websites_apolloauto_aistudio_src_components_contactform_tsx",
+      "target": "contactform_handlesubmit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/AIAssistant.tsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_src": "home_tim_applications_websites_apolloauto_aistudio_src_components_aiassistant_tsx",
+      "_tgt": "aiassistant_parselinewithlinks",
+      "source": "home_tim_applications_websites_apolloauto_aistudio_src_components_aiassistant_tsx",
+      "target": "aiassistant_parselinewithlinks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/AIAssistant.tsx",
+      "source_location": "L82",
+      "weight": 1.0,
+      "_src": "home_tim_applications_websites_apolloauto_aistudio_src_components_aiassistant_tsx",
+      "_tgt": "aiassistant_handlesendmessage",
+      "source": "home_tim_applications_websites_apolloauto_aistudio_src_components_aiassistant_tsx",
+      "target": "aiassistant_handlesendmessage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/FinancingCalculator.tsx",
+      "source_location": "L53",
+      "weight": 1.0,
+      "_src": "home_tim_applications_websites_apolloauto_aistudio_src_components_financingcalculator_tsx",
+      "_tgt": "financingcalculator_applypresetprofile",
+      "source": "home_tim_applications_websites_apolloauto_aistudio_src_components_financingcalculator_tsx",
+      "target": "financingcalculator_applypresetprofile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/MobileTabBar.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_src": "home_tim_applications_websites_apolloauto_aistudio_src_components_mobiletabbar_tsx",
+      "_tgt": "mobiletabbar_mobiletabbar",
+      "source": "home_tim_applications_websites_apolloauto_aistudio_src_components_mobiletabbar_tsx",
+      "target": "mobiletabbar_mobiletabbar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/PathwayTiles.tsx",
+      "source_location": "L59",
+      "weight": 1.0,
+      "_src": "home_tim_applications_websites_apolloauto_aistudio_src_components_pathwaytiles_tsx",
+      "_tgt": "pathwaytiles_pathwaytiles",
+      "source": "home_tim_applications_websites_apolloauto_aistudio_src_components_pathwaytiles_tsx",
+      "target": "pathwaytiles_pathwaytiles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/RevealOnScroll.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_src": "home_tim_applications_websites_apolloauto_aistudio_src_components_revealonscroll_tsx",
+      "_tgt": "revealonscroll_revealonscroll",
+      "source": "home_tim_applications_websites_apolloauto_aistudio_src_components_revealonscroll_tsx",
+      "target": "revealonscroll_revealonscroll",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/Navigation.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_src": "home_tim_applications_websites_apolloauto_aistudio_src_components_navigation_tsx",
+      "_tgt": "navigation_handlescroll",
+      "source": "home_tim_applications_websites_apolloauto_aistudio_src_components_navigation_tsx",
+      "target": "navigation_handlescroll",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/HeroDecor.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_src": "home_tim_applications_websites_apolloauto_aistudio_src_components_herodecor_tsx",
+      "_tgt": "herodecor_herodecor",
+      "source": "home_tim_applications_websites_apolloauto_aistudio_src_components_herodecor_tsx",
+      "target": "herodecor_herodecor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/AdminPanel.tsx",
+      "source_location": "L52",
+      "weight": 1.0,
+      "_src": "home_tim_applications_websites_apolloauto_aistudio_src_components_adminpanel_tsx",
+      "_tgt": "adminpanel_handlelogin",
+      "source": "home_tim_applications_websites_apolloauto_aistudio_src_components_adminpanel_tsx",
+      "target": "adminpanel_handlelogin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/AdminPanel.tsx",
+      "source_location": "L77",
+      "weight": 1.0,
+      "_src": "home_tim_applications_websites_apolloauto_aistudio_src_components_adminpanel_tsx",
+      "_tgt": "adminpanel_handlelogout",
+      "source": "home_tim_applications_websites_apolloauto_aistudio_src_components_adminpanel_tsx",
+      "target": "adminpanel_handlelogout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/AdminPanel.tsx",
+      "source_location": "L84",
+      "weight": 1.0,
+      "_src": "home_tim_applications_websites_apolloauto_aistudio_src_components_adminpanel_tsx",
+      "_tgt": "adminpanel_fetchleads",
+      "source": "home_tim_applications_websites_apolloauto_aistudio_src_components_adminpanel_tsx",
+      "target": "adminpanel_fetchleads",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/AdminPanel.tsx",
+      "source_location": "L100",
+      "weight": 1.0,
+      "_src": "home_tim_applications_websites_apolloauto_aistudio_src_components_adminpanel_tsx",
+      "_tgt": "adminpanel_handlepostannouncement",
+      "source": "home_tim_applications_websites_apolloauto_aistudio_src_components_adminpanel_tsx",
+      "target": "adminpanel_handlepostannouncement",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/tim/Applications/Websites/ApolloAuto-AIStudio/src/components/AdminPanel.tsx",
+      "source_location": "L67",
+      "weight": 1.0,
+      "_src": "adminpanel_handlelogin",
+      "_tgt": "adminpanel_fetchleads",
+      "source": "adminpanel_handlelogin",
+      "target": "adminpanel_fetchleads",
+      "confidence_score": 1.0
+    }
+  ],
+  "hyperedges": []
+}

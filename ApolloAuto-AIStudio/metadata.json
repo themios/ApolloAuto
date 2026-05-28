@@ -1,0 +1,6 @@
+{
+  "name": "Apollo Auto",
+  "description": "Family-owned used car dealership landing page and brand hub for Simi Valley & El Monte.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
