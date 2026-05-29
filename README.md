@@ -25,8 +25,8 @@ websites/
 ```bash
 cd /home/tim/Applications/Websites/ApolloAuto   # or whichever customer folder
 nvm use
-npm install
-npm run rebuild:native   # if better-sqlite3 needs rebuild for your Node version
+npm install            # required after clone
+npm run rebuild:native # if needed for your Node version
 npm start
 ```
 

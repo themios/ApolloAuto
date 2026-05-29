@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, type ReactNode } from 'react';
 import { MessageSquare, Car, Sparkles, Send, Landmark, HelpCircle, ShieldAlert, PhoneCall, ChevronRight, User } from 'lucide-react';
 
 interface ChatTurn {
@@ -15,33 +15,45 @@ interface AIAssistantProps {
   };
 }
 
-// Helper to parse markdown links [Text](Url) into safe, styled clickable React anchors
+function isSafeUrl(url: string): boolean {
+  try {
+    return new URL(url).protocol === 'https:';
+  } catch {
+    return false;
+  }
+}
+
+// Parse markdown links [Text](Url) from model output into anchors, https: only
 function parseLineWithLinks(text: string) {
   const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
-  const parts = [];
+  const parts: (string | ReactNode)[] = [];
   let lastIndex = 0;
   let match;
 
   while ((match = regex.exec(text)) !== null) {
-    const [_, linkText, url] = match;
+    const [, linkText, url] = match;
     const matchIndex = match.index;
 
     if (matchIndex > lastIndex) {
       parts.push(text.slice(lastIndex, matchIndex));
     }
 
-    parts.push(
-      <a
-        key={matchIndex}
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-lemon hover:text-sun-bright underline font-extrabold transition-colors mx-0.5 inline-flex items-center leading-snug"
-      >
-        <span>{linkText}</span>
-        <ChevronRight className="w-4 h-4 ml-0.5 inline shrink-0" />
-      </a>
-    );
+    if (isSafeUrl(url)) {
+      parts.push(
+        <a
+          key={matchIndex}
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-lemon hover:text-sun-bright underline font-extrabold transition-colors mx-0.5 inline-flex items-center leading-snug"
+        >
+          <span>{linkText}</span>
+          <ChevronRight className="w-4 h-4 ml-0.5 inline shrink-0" />
+        </a>
+      );
+    } else {
+      parts.push(linkText);
+    }
 
     lastIndex = regex.lastIndex;
   }

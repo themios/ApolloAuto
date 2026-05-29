@@ -1,0 +1,58 @@
+[
+  {
+    "id": "simi-valley",
+    "city": "Simi Valley",
+    "county": "Ventura County",
+    "phone": "8054043873",
+    "phoneDisplay": "(805) 404-3873",
+    "email": "apolloautous@gmail.com",
+    "address": "1555 Simi Town Center Way, Suite 420",
+    "zip": "93065",
+    "inventoryUrl": "https://apolloauto-to.com",
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3294.2858694852924!2d-118.73602562427092!3d34.28042457307223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f131!3m3!1m2!1s0x80c2621ad70cf273%3A0xe67db5cf8cde81cf!2s1555%20Simi%20Town%20Center%20Way%2C%20Simi%20Valley%2C%20CA%2093065!5e0!3m2!1sen!2sus!4v1716800000000!5m2!1sen!2sus",
+    "hours": [
+      "Monday - Saturday: 9:00 AM - 6:00 PM",
+      "Sunday: Closed"
+    ],
+    "areasServed": [
+      "Simi Valley",
+      "Thousand Oaks",
+      "Moorpark",
+      "Camarillo",
+      "Ventura",
+      "Oxnard",
+      "Chatsworth",
+      "West Hills",
+      "Porter Ranch",
+      "San Fernando Valley"
+    ]
+  },
+  {
+    "id": "el-monte",
+    "city": "El Monte",
+    "county": "Los Angeles County",
+    "phone": "6262150440",
+    "phoneDisplay": "(626) 215-0440",
+    "email": "apolloautous@gmail.com",
+    "address": "10915 Garvey Ave",
+    "zip": "91733",
+    "inventoryUrl": "https://apolloauto-em.com",
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.6599298492212!2d-118.041695!3d34.052673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f131!3m3!1m2!1s0x80c2d0f0aaaaaaab%3A0x7b5871f28b492b49!2s10915%20Garvey%20Ave%2C%20El%20Monte%2C%20CA%2091733!5e0!3m2!1sen!2sus!4v1716800000000!5m2!1sen!2sus",
+    "hours": [
+      "Monday - Saturday: 9:00 AM - 6:00 PM",
+      "Sunday: Closed"
+    ],
+    "areasServed": [
+      "El Monte",
+      "West Covina",
+      "Baldwin Park",
+      "Monterey Park",
+      "Temple City",
+      "Arcadia",
+      "Rosemead",
+      "Alhambra",
+      "Los Angeles",
+      "San Gabriel Valley"
+    ]
+  }
+]

@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import {
-  Car, Phone, MapPin, Landmark, BookOpen, HelpCircle, Lock, Menu, X, FileText,
-  ShieldCheck, ArrowRight, Check, CheckCircle, ExternalLink, Calendar, MessageSquare, AlertCircle, Sparkles, Mail
+  Car, Phone, MapPin, Landmark, BookOpen, HelpCircle, FileText,
+  ShieldCheck, ArrowRight, Check, ExternalLink, Calendar, AlertCircle, Sparkles, Mail
 } from 'lucide-react';
 import Navigation from './components/Navigation';
 import ContactForm from './components/ContactForm';
@@ -10,26 +11,60 @@ import ContractViewer from './components/ContractViewer';
 import AdminPanel from './components/AdminPanel';
 import TestimonialCarousel from './components/TestimonialCarousel';
 import FinancingCalculator from './components/FinancingCalculator';
-import PageHero from './components/PageHero';
 import TrustPillars from './components/TrustPillars';
 import PathwayTiles from './components/PathwayTiles';
 import ShopByNeedCarousel from './components/ShopByNeedCarousel';
 import RevealOnScroll from './components/RevealOnScroll';
 import MobileTabBar from './components/MobileTabBar';
 import HeroDecor from './components/HeroDecor';
-import { LOCATIONS, FAQ_ITEMS, BLOG_ARTICLES, GLOSSARY_ITEMS, FAQItem, BlogArticle } from './types';
+import { LOCATIONS, FAQItem, BlogArticle } from './types';
+
+// Map URL paths to view identifiers
+function pathToView(pathname: string): string {
+  if (pathname === '/' || pathname === '') return 'home';
+  if (pathname.startsWith('/resources/guides/')) return 'blog-post';
+  return pathname.replace(/^\//, '');
+}
+
+function viewToPath(view: string): string {
+  return view === 'home' ? '/' : `/${view}`;
+}
 
 export default function App() {
-  const [currentView, setCurrentView] = useState('home');
-  const [selectedArticle, setSelectedArticle] = useState<BlogArticle | null>(null);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const currentView = pathToView(location.pathname);
+  const blogSlug = currentView === 'blog-post'
+    ? location.pathname.split('/').pop() ?? null
+    : null;
+
   const [feed, setFeed] = useState<any[]>([]);
   const [leads, setLeads] = useState<any[]>([]);
+  const [faqItems, setFaqItems] = useState<FAQItem[]>([]);
+  const [articles, setArticles] = useState<BlogArticle[]>([]);
 
-  // Fetch Feed and Leads on mount
+  const selectedArticle: BlogArticle | null = blogSlug
+    ? articles.find(a => a.slug === blogSlug) ?? null
+    : null;
+
+  // Fetch content once on mount
   useEffect(() => {
     fetchFeed();
-    fetchLeads();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    fetch('/api/faqs').then(r => r.json()).then(setFaqItems).catch(() => {});
+    fetch('/api/articles').then(r => r.json()).then(setArticles).catch(() => {});
+  }, []);
+
+  // Scroll to top instantly on every route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
+  // Fetch leads only when admin panel is open
+  useEffect(() => {
+    if (currentView === 'admin') {
+      fetchLeads();
+    }
   }, [currentView]);
 
   const fetchFeed = async () => {
@@ -56,11 +91,7 @@ export default function App() {
     }
   };
 
-  // Nav helper
-  const navigateTo = (view: string) => {
-    setCurrentView(view);
-    setSelectedArticle(null);
-  };
+  const navigateTo = (view: string) => navigate(viewToPath(view));
 
   return (
     <div className="min-h-screen bg-grain flex flex-col font-sans text-base text-navy antialiased">
@@ -101,6 +132,16 @@ export default function App() {
                     Family-owned · Simi Valley & El Monte
                   </div>
 
+                  {/* H1 and subhead FIRST — establish who we are before showing locations */}
+                  <div className="space-y-4">
+                    <h1 className="heading-display text-[2rem] sm:text-5xl lg:text-[3.25rem] text-white text-balance">
+                      Reliable cars for families who depend on them
+                    </h1>
+                    <p className="text-lg sm:text-xl text-sky-light max-w-xl leading-relaxed">
+                      Honest used cars, clear pricing, and help getting approved. You talk to real people you can call, not a different salesperson every time.
+                    </p>
+                  </div>
+
                   {/* Location quick-select → live CFS inventory */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <a
@@ -138,15 +179,6 @@ export default function App() {
                         Browse live inventory <ExternalLink className="w-3.5 h-3.5" />
                       </span>
                     </a>
-                  </div>
-
-                  <div className="space-y-4">
-                    <h1 className="heading-display text-[2rem] sm:text-5xl lg:text-[3.25rem] text-white text-balance">
-                      Reliable cars for families who depend on them
-                    </h1>
-                    <p className="text-lg sm:text-xl text-sky-light max-w-xl leading-relaxed">
-                      Honest used cars, clear pricing, and help getting approved. You talk to real people you can call, not a different salesperson every time.
-                    </p>
                   </div>
 
                   <div className="flex flex-wrap gap-2.5">
@@ -438,13 +470,10 @@ export default function App() {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {BLOG_ARTICLES.slice(0, 3).map((art) => (
+                {articles.slice(0, 3).map((art) => (
                   <div
                     key={art.slug}
-                    onClick={() => {
-                      setSelectedArticle(art);
-                      setCurrentView('blog-post');
-                    }}
+                    onClick={() => navigate(`/resources/guides/${art.slug}`)}
                     className="bg-white rounded-2xl border-2 border-sky-light p-5 space-y-4 cursor-pointer pathway-tile flex flex-col justify-between"
                   >
                     <div className="space-y-2">
@@ -528,7 +557,7 @@ export default function App() {
                 <div className="bg-white p-6 sm:p-8 rounded-3xl border border-gray-150 shadow-sm space-y-4">
                   <h3 className="font-display font-bold text-lg text-navy">Simi Valley Lot FAQ</h3>
                   <div className="space-y-4">
-                    {FAQ_ITEMS.filter(f => f.category === 'visiting').slice(0, 3).map((faq) => (
+                    {faqItems.filter(f => f.category === 'visiting').slice(0, 3).map((faq) => (
                       <div key={faq.id} className="space-y-1">
                         <h4 className="text-sm font-bold text-navy flex items-start">
                           <span className="text-gold mr-1 border border-gold/30 rounded px-1 text-[8px] uppercase select-none mt-0.5 shrink-0">Q</span>
@@ -650,7 +679,7 @@ export default function App() {
                 <div className="bg-white p-6 sm:p-8 rounded-3xl border border-gray-150 shadow-sm space-y-4">
                   <h3 className="font-display font-bold text-lg text-navy">El Monte Lot FAQ</h3>
                   <div className="space-y-4">
-                    {FAQ_ITEMS.filter(f => f.category === 'financing').slice(0, 3).map((faq) => (
+                    {faqItems.filter(f => f.category === 'financing').slice(0, 3).map((faq) => (
                       <div key={faq.id} className="space-y-1">
                         <h4 className="text-sm font-bold text-navy flex items-start">
                           <span className="text-gold mr-1 border border-gold/30 rounded px-1 text-[8px] uppercase select-none mt-0.5 shrink-0">Q</span>
@@ -810,13 +839,10 @@ export default function App() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {BLOG_ARTICLES.map((art) => (
+                {articles.map((art) => (
                   <div
                     key={art.slug}
-                    onClick={() => {
-                      setSelectedArticle(art);
-                      setCurrentView('blog-post');
-                    }}
+                    onClick={() => navigate(`/resources/guides/${art.slug}`)}
                     className="bg-white rounded-2xl border border-gray-100 p-6 space-y-4 cursor-pointer hover:border-gold/30 transition-all shadow-sm flex flex-col justify-between"
                   >
                     <div className="space-y-2">
@@ -870,7 +896,7 @@ export default function App() {
                     <h3 className="font-display font-bold text-sm text-navy uppercase tracking-wider">Buying & Inventory</h3>
                   </div>
                   <div className="space-y-4">
-                    {FAQ_ITEMS.filter(f => f.category === 'buying').map((faq) => (
+                    {faqItems.filter(f => f.category === 'buying').map((faq) => (
                       <details key={faq.id} className="group text-sm select-none border-b border-gray-50 pb-2.5">
                         <summary className="font-bold text-navy hover:text-gold cursor-pointer flex justify-between items-center list-none pr-3">
                           <span>{faq.question}</span>
@@ -889,7 +915,7 @@ export default function App() {
                     <h3 className="font-display font-bold text-sm text-navy uppercase tracking-wider">Credit & trade-Ins</h3>
                   </div>
                   <div className="space-y-4">
-                    {FAQ_ITEMS.filter(f => f.category === 'financing').map((faq) => (
+                    {faqItems.filter(f => f.category === 'financing').map((faq) => (
                       <details key={faq.id} className="group text-sm select-none border-b border-gray-50 pb-2.5">
                         <summary className="font-bold text-navy hover:text-gold cursor-pointer flex justify-between items-center list-none pr-3">
                           <span>{faq.question}</span>
@@ -908,7 +934,7 @@ export default function App() {
                     <h3 className="font-display font-bold text-sm text-navy uppercase tracking-wider">Visiting Details</h3>
                   </div>
                   <div className="space-y-4">
-                    {FAQ_ITEMS.filter(f => f.category === 'visiting').map((faq) => (
+                    {faqItems.filter(f => f.category === 'visiting').map((faq) => (
                       <details key={faq.id} className="group text-sm select-none border-b border-gray-50 pb-2.5">
                         <summary className="font-bold text-navy hover:text-gold cursor-pointer flex justify-between items-center list-none pr-3">
                           <span>{faq.question}</span>
@@ -1058,7 +1084,6 @@ export default function App() {
                 <button onClick={() => navigateTo('financing')} className="text-left text-white/90 hover:text-lemon cursor-pointer">Financing</button>
                 <button onClick={() => navigateTo('resources')} className="text-left text-white/90 hover:text-lemon cursor-pointer">Guides Hub</button>
                 <button onClick={() => navigateTo('faq')} className="text-left text-white/90 hover:text-lemon cursor-pointer">Q&A FAQ</button>
-                <button onClick={() => navigateTo('admin')} className="text-left text-white/90 hover:text-lemon cursor-pointer">CMS login</button>
               </div>
               <div className="pt-2">
                 <span className="text-sm text-white/80 font-mono leading-relaxed">

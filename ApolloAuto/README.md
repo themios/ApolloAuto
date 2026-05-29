@@ -17,10 +17,11 @@ Family-owned used car dealership site for **Ventura & Los Angeles counties**.
 Blog posts and homepage updates load from the API. Use the Node server:
 
 ```bash
-cd /home/tim/ApolloWebsite
-cp .env.example .env
-# Edit .env: set ADMIN_PASSWORD and SESSION_SECRET
-npm install
+cd /home/tim/Applications/Websites/ApolloAuto
+cp .env.example .env   # optional: admin password & session secret
+nvm use
+npm install            # required after clone — node_modules is not in git
+npm run rebuild:native # if admin/API fails with better-sqlite3 errors
 npm start
 ```
 

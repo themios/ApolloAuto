@@ -1,0 +1,42 @@
+[
+  {
+    "id": "t-1",
+    "name": "Carlos Mendoza",
+    "location": "El Monte Lot Visitor",
+    "carModel": "2019 Toyota Corolla SE",
+    "rating": 5,
+    "date": "2026-04-18",
+    "initials": "CM",
+    "quote": "Tim made everything simple. No complex dealership games, no hidden prep fees. We got a reliable commuter for our daughter and rebuild our family credit score step-by-step."
+  },
+  {
+    "id": "t-2",
+    "name": "Evelyn Ramirez",
+    "location": "Simi Valley Lot Customer",
+    "carModel": "2018 Honda Civic LX",
+    "rating": 5,
+    "date": "2026-05-02",
+    "initials": "ER",
+    "quote": "After our bankruptcy, we were turned away at three big high-pressure lots. Tim sat down with us, verified our paycheck paystubs directly, and got our bank approval in 20 minutes."
+  },
+  {
+    "id": "t-3",
+    "name": "David K.",
+    "location": "Simi Valley Lot Customer",
+    "carModel": "2020 Nissan Rogue Sport",
+    "rating": 5,
+    "date": "2026-05-14",
+    "initials": "DK",
+    "quote": "Bought a clean daily commuter Rogue here. Smog check was already completed, plates came in our mail 2 weeks later. Extremely honest and professional Ventura County group."
+  },
+  {
+    "id": "t-4",
+    "name": "Maria S. & Family",
+    "location": "El Monte Lot Customer",
+    "carModel": "2017 Honda Accord Hybrid",
+    "rating": 5,
+    "date": "2026-03-29",
+    "initials": "MS",
+    "quote": "Bilingual staff is incredible. Tim translated every contract page clearly into Spanish for my mother. We knew exactly what our APR, down payments, and signatures meant."
+  }
+]

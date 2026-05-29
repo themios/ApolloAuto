@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowLeft, ArrowRight, Quote, Star, User, Play, Pause } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Quote, Star, Play, Pause } from 'lucide-react';
 
 interface Testimonial {
   id: string;
@@ -9,58 +9,19 @@ interface Testimonial {
   rating: number;
   date: string;
   quote: string;
-  avatarUrl?: string; // Optional avatar placeholder
   initials: string;
 }
 
-const TESTIMONIALS: Testimonial[] = [
-  {
-    id: 'test-1',
-    name: 'Carlos Mendoza',
-    location: 'El Monte Lot Visitor',
-    carModel: '2019 Toyota Corolla SE',
-    rating: 5,
-    date: '2026-04-18',
-    quote: 'Tim made everything simple. No complex dealership games, no hidden prep fees. We got a reliable commuter for our daughter and rebuild our family credit score step-by-step.',
-    initials: 'CM'
-  },
-  {
-    id: 'test-2',
-    name: 'Evelyn Ramirez',
-    location: 'Simi Valley Lot Customer',
-    carModel: '2018 Honda Civic LX',
-    rating: 5,
-    date: '2026-05-02',
-    quote: 'After our bankruptcy, we were turned away at three big high-pressure lots. Tim sat down with us, verified our paycheck paystubs directly, and got our bank approval in 20 minutes.',
-    initials: 'ER'
-  },
-  {
-    id: 'test-3',
-    name: 'David K.',
-    location: 'Simi Valley Lot Customer',
-    carModel: '2020 Nissan Rogue Sport',
-    rating: 5,
-    date: '2026-05-14',
-    quote: 'Bought a clean daily commuter Rogue here. Smog check was already completed, plates came in our mail 2 weeks later. Extremely honest and professional Ventura County group.',
-    initials: 'DK'
-  },
-  {
-    id: 'test-4',
-    name: 'Maria S. & Family',
-    location: 'El Monte Lot Customer',
-    carModel: '2017 Honda Accord Hybrid',
-    rating: 5,
-    date: '2026-03-29',
-    quote: 'Bilingual staff is incredible. Tim translated every contract page clearly into Spanish for my mother. We knew exactly what our APR, down payments, and signatures meant.',
-    initials: 'MS'
-  }
-];
-
 export default function TestimonialCarousel() {
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAutoplay, setIsAutoplay] = useState(true);
   const [prefersReduced, setPrefersReduced] = useState(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    fetch('/api/testimonials').then(r => r.json()).then(setTestimonials).catch(() => {});
+  }, []);
 
   // Detect prefers-reduced-motion
   useEffect(() => {
@@ -91,60 +52,20 @@ export default function TestimonialCarousel() {
   }, [activeIndex, isAutoplay, prefersReduced]);
 
   const handlePrev = () => {
-    setActiveIndex((prev) => (prev === 0 ? TESTIMONIALS.length - 1 : prev - 1));
+    setActiveIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
   };
 
   const handleNext = () => {
-    setActiveIndex((prev) => (prev === TESTIMONIALS.length - 1 ? 0 : prev + 1));
+    setActiveIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
   };
 
-  const current = TESTIMONIALS[activeIndex];
+  const current = testimonials[activeIndex];
 
   // Schema Markup generation: Aggregate rating & separate reviews
-  const jsonLdMarkup = {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    'name': 'Apollo Auto',
-    'image': 'https://apolloauto-to.com/logo.png',
-    'telephone': '805-404-3873',
-    'address': {
-      '@type': 'PostalAddress',
-      'streetAddress': '1555 Simi Town Center Way, Suite 420',
-      'addressLocality': 'Simi Valley',
-      'addressRegion': 'CA',
-      'postalCode': '93065',
-      'addressCountry': 'US'
-    },
-    'aggregateRating': {
-      '@type': 'AggregateRating',
-      'ratingValue': '4.9',
-      'reviewCount': '524',
-      'bestRating': '5',
-      'worstRating': '1'
-    },
-    'review': TESTIMONIALS.map(t => ({
-      '@type': 'Review',
-      'author': {
-        '@type': 'Person',
-        'name': t.name
-      },
-      'datePublished': t.date,
-      'reviewBody': t.quote,
-      'reviewRating': {
-        '@type': 'Rating',
-        'ratingValue': t.rating.toString(),
-        'bestRating': '5'
-      }
-    }))
-  };
+  if (testimonials.length === 0) return null;
 
   return (
     <section id="trust-testimonials" className="py-12 bg-white rounded-3xl border border-gray-150 shadow-sm relative overflow-hidden">
-      {/* Dynamic SEO Injector inside element */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdMarkup) }}
-      />
 
       <div className="max-w-4xl mx-auto px-6 sm:px-12 space-y-8">
         
@@ -238,7 +159,7 @@ export default function TestimonialCarousel() {
 
           {/* Dots Indicator list */}
           <div className="flex space-x-1.5">
-            {TESTIMONIALS.map((_, idx) => (
+            {testimonials.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => {

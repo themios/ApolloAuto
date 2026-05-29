@@ -18,7 +18,7 @@ export default function ContactForm({ initialLocation, onLeadSubmitted }: Contac
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccesful, setIsSuccessful] = useState(false);
+  const [isSuccessful, setIsSuccessful] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
   const carInterests = [
@@ -79,7 +79,7 @@ export default function ContactForm({ initialLocation, onLeadSubmitted }: Contac
     }
   };
 
-  if (isSuccesful) {
+  if (isSuccessful) {
     return (
       <div id="contact-success-panel" className="bg-white p-6 sm:p-8 rounded-3xl border border-success/15 shadow-sm text-center space-y-5 max-w-xl mx-auto reveal-entry">
         <div className="w-16 h-16 bg-success/10 rounded-full flex items-center justify-center text-success mx-auto">
@@ -175,11 +175,12 @@ export default function ContactForm({ initialLocation, onLeadSubmitted }: Contac
 
         {/* Name Input */}
         <div className="space-y-2">
-          <label className="form-label text-gray-600 uppercase flex items-center">
+          <label htmlFor="cf-name" className="form-label text-gray-600 uppercase flex items-center">
             <User className="w-4 h-4 mr-1.5 text-gold" />
             <span>Full Name *</span>
           </label>
           <input
+            id="cf-name"
             type="text"
             required
             placeholder="John Doe"
@@ -192,11 +193,12 @@ export default function ContactForm({ initialLocation, onLeadSubmitted }: Contac
         {/* Phone & Email Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-2">
-            <label className="form-label text-gray-600 uppercase flex items-center">
+            <label htmlFor="cf-phone" className="form-label text-gray-600 uppercase flex items-center">
               <Phone className="w-4 h-4 mr-1.5 text-gold" />
               <span>Mobile Phone *</span>
             </label>
             <input
+              id="cf-phone"
               type="tel"
               required
               placeholder="(805) 555-0123"
@@ -207,11 +209,12 @@ export default function ContactForm({ initialLocation, onLeadSubmitted }: Contac
           </div>
 
           <div className="space-y-2">
-            <label className="form-label text-gray-600 uppercase flex items-center">
+            <label htmlFor="cf-email" className="form-label text-gray-600 uppercase flex items-center">
               <Mail className="w-4 h-4 mr-1.5 text-gold" />
               <span>Email (Optional)</span>
             </label>
             <input
+              id="cf-email"
               type="email"
               placeholder="john@example.com"
               value={formData.email}
@@ -222,52 +225,55 @@ export default function ContactForm({ initialLocation, onLeadSubmitted }: Contac
         </div>
 
         {/* Location Lot Selector */}
-        <div className="space-y-2">
-          <label className="form-label text-gray-600 uppercase flex items-center">
+        <fieldset className="space-y-2">
+          <legend className="form-label text-gray-600 uppercase flex items-center">
             <MapPin className="w-4 h-4 mr-1.5 text-gold" />
             <span>Preferred Lot Location</span>
-          </label>
+          </legend>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <label className={`flex items-center justify-center p-3.5 rounded-xl border cursor-pointer text-sm sm:text-base text-center transition-all touch-target min-h-[3rem] ${
+            <label htmlFor="cf-loc-simi" className={`flex items-center justify-center p-3.5 rounded-xl border cursor-pointer text-sm sm:text-base text-center transition-all touch-target min-h-[3rem] ${
               formData.location === 'simi-valley'
                 ? 'bg-navy border-navy text-white font-semibold'
                 : 'bg-paper/30 border-gray-100 text-navy hover:bg-paper/50'
             }`}>
               <input
+                id="cf-loc-simi"
                 type="radio"
                 name="location"
                 value="simi-valley"
                 checked={formData.location === 'simi-valley'}
                 onChange={() => setFormData({ ...formData, location: 'simi-valley' })}
-                className="hidden"
+                className="sr-only"
               />
               <span>Simi Valley (Ventura)</span>
             </label>
-            <label className={`flex items-center justify-center p-3.5 rounded-xl border cursor-pointer text-sm sm:text-base text-center transition-all touch-target min-h-[3rem] ${
+            <label htmlFor="cf-loc-elmont" className={`flex items-center justify-center p-3.5 rounded-xl border cursor-pointer text-sm sm:text-base text-center transition-all touch-target min-h-[3rem] ${
               formData.location === 'el-monte'
                 ? 'bg-navy border-navy text-white font-semibold'
                 : 'bg-paper/30 border-gray-100 text-navy hover:bg-paper/50'
             }`}>
               <input
+                id="cf-loc-elmont"
                 type="radio"
                 name="location"
                 value="el-monte"
                 checked={formData.location === 'el-monte'}
                 onChange={() => setFormData({ ...formData, location: 'el-monte' })}
-                className="hidden"
+                className="sr-only"
               />
               <span>El Monte (LA County)</span>
             </label>
           </div>
-        </div>
+        </fieldset>
 
         {/* Car Interest */}
         <div className="space-y-2">
-          <label className="form-label text-gray-600 uppercase flex items-center">
+          <label htmlFor="cf-car-interest" className="form-label text-gray-600 uppercase flex items-center">
             <Car className="w-4 h-4 mr-1.5 text-gold" />
             <span>What type of car fits your drive?</span>
           </label>
           <select
+            id="cf-car-interest"
             value={formData.carInterest}
             onChange={e => setFormData({ ...formData, carInterest: e.target.value })}
             className="form-field w-full bg-paper/20 border border-gray-100 focus:border-gold focus:outline-none focus:bg-white transition-all text-navy"
@@ -280,11 +286,12 @@ export default function ContactForm({ initialLocation, onLeadSubmitted }: Contac
 
         {/* Credit History Select */}
         <div className="space-y-2">
-          <label className="form-label text-gray-600 uppercase flex items-center">
+          <label htmlFor="cf-credit-status" className="form-label text-gray-600 uppercase flex items-center">
             <Landmark className="w-4 h-4 mr-1.5 text-gold" />
             <span>Credit History Tier</span>
           </label>
           <select
+            id="cf-credit-status"
             value={formData.creditStatus}
             onChange={e => setFormData({ ...formData, creditStatus: e.target.value })}
             className="form-field w-full bg-paper/20 border border-gray-100 focus:border-gold focus:outline-none focus:bg-white transition-all text-navy"
@@ -297,11 +304,12 @@ export default function ContactForm({ initialLocation, onLeadSubmitted }: Contac
 
         {/* Message */}
         <div className="space-y-2">
-          <label className="form-label text-gray-600 uppercase flex items-center">
+          <label htmlFor="cf-message" className="form-label text-gray-600 uppercase flex items-center">
             <MessageSquare className="w-4 h-4 mr-1.5 text-gold" />
             <span>Message to Tim (Optional)</span>
           </label>
           <textarea
+            id="cf-message"
             placeholder="e.g. My budget is $1,500 down, what is open in Civic or Corolla hatchbacks?"
             value={formData.message}
             onChange={e => setFormData({ ...formData, message: e.target.value })}

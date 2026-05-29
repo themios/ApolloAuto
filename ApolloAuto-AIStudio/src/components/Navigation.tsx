@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Car, Phone, MapPin, Landmark, BookOpen, HelpCircle, Lock, Menu, X, FileText, ShieldCheck } from 'lucide-react';
+import { Car, Phone, MapPin, Landmark, BookOpen, HelpCircle, Menu, X, FileText, ShieldCheck } from 'lucide-react';
 import { LOCATIONS } from '../types';
 
 interface NavigationProps {
@@ -21,7 +21,6 @@ export default function Navigation({ currentView, onNavigate }: NavigationProps)
     { id: 'home', label: 'Home', icon: Car },
     { id: 'resources', label: 'Buyer Guides', icon: BookOpen },
     { id: 'faq', label: 'Help & FAQ', icon: HelpCircle },
-    { id: 'admin', label: 'Admin CMS', icon: Lock },
   ];
 
   const navItems = [
@@ -31,7 +30,6 @@ export default function Navigation({ currentView, onNavigate }: NavigationProps)
     { id: 'financing', label: 'Financing', icon: Landmark },
     { id: 'resources', label: 'Buyer Guides', icon: BookOpen },
     { id: 'faq', label: 'Help & FAQ', icon: HelpCircle },
-    { id: 'admin', label: 'Admin CMS', icon: Lock },
   ];
 
   return (

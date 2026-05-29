@@ -1,0 +1,98 @@
+[
+  {
+    "id": "faq-1",
+    "category": "buying",
+    "question": "How often is the inventory updated, and where can I view the actual cars in stock?",
+    "answer": "Our inventory is hosted on dedicated websites for each lot. Browse live stock at apolloauto-to.com (Simi Valley) and apolloauto-em.com (El Monte). New arrivals are listed almost every day."
+  },
+  {
+    "id": "faq-2",
+    "category": "buying",
+    "question": "Can I purchase a vehicle from the El Monte lot if I live in Simi Valley (or vice-versa)?",
+    "answer": "Absolutely! We operate both lots as a single family. If you see a vehicle at either branch, give Tim a call and we will coordinate everything."
+  },
+  {
+    "id": "faq-3",
+    "category": "buying",
+    "question": "Do your used cars go through any safety and reliability checks?",
+    "answer": "Yes. Every vehicle goes through a rigorous safety inspection covering brakes, tires, steering, transmission, and all vital mechanical parts."
+  },
+  {
+    "id": "faq-4",
+    "category": "buying",
+    "question": "Are there any hidden fees or unrequested dealer add-ons added to the price?",
+    "answer": "No. You pay the agreed vehicle price, actual DMV fees, local sales tax, and the standard $85 document processing fee. No forced add-ons."
+  },
+  {
+    "id": "faq-5",
+    "category": "financing",
+    "question": "I have bad credit, no credit, or a past repossession. Can I still get financed?",
+    "answer": "Yes! We work with specialized subprime lenders who focus on your current ability to pay, not just your credit score."
+  },
+  {
+    "id": "faq-6",
+    "category": "financing",
+    "question": "What documents do I need to bring to secure a bad-credit loan approval?",
+    "answer": "Bring: (1) California Driver's License, (2) two recent pay stubs or 3 months of bank statements, (3) utility bill for residency, (4) proof of insurance, (5) a list of 5 references."
+  },
+  {
+    "id": "faq-7",
+    "category": "financing",
+    "question": "How much of a down payment will I need?",
+    "answer": "Many reliable commuter cars can be financed with $1,000–$2,000 down. A larger down payment lowers your monthly payment and improves your approval odds."
+  },
+  {
+    "id": "faq-8",
+    "category": "financing",
+    "question": "Can I use a co-signer to get a lower interest rate?",
+    "answer": "Yes! A co-signer with stable credit or income is an excellent way to get approved instantly and lower your APR."
+  },
+  {
+    "id": "faq-9",
+    "category": "financing",
+    "question": "Do you accept trade-ins, and how is the value determined?",
+    "answer": "We love trade-ins! We evaluate your vehicle based on real-time KBB market data and its mechanical condition, then credit its full value toward your new purchase."
+  },
+  {
+    "id": "faq-10",
+    "category": "financing",
+    "question": "Can I trade in a car that I still owe money on?",
+    "answer": "Yes. We contact your lender for the payoff amount. If your car is worth more than you owe, the equity goes toward your new purchase. If not, we can often roll the difference into your new loan."
+  },
+  {
+    "id": "faq-11",
+    "category": "financing",
+    "question": "Will applying for financing hurt my credit score?",
+    "answer": "We sit down with you first, review your profile, and submit only to 1–2 lenders most likely to approve you at the best rate, minimizing unnecessary inquiries."
+  },
+  {
+    "id": "faq-12",
+    "category": "visiting",
+    "question": "Do I need to make an appointment to take a test drive?",
+    "answer": "Walk-ins are welcome (Mon–Sat, 9AM–6PM), but texting Tim ahead ensures the specific car you want is ready for you at the front."
+  },
+  {
+    "id": "faq-13",
+    "category": "visiting",
+    "question": "Where exactly are your lots located, and is parking available?",
+    "answer": "Simi Valley: 1555 Simi Town Center Way, Suite 420 (free retail parking). El Monte: 10915 Garvey Ave (easy front parking zone)."
+  },
+  {
+    "id": "faq-14",
+    "category": "visiting",
+    "question": "Can we complete most of the buying process over the phone or text?",
+    "answer": "Yes! Tim works through call or text to estimate payments, submit pre-approvals, and value trade-ins. When you visit, you just verify the car, test drive, sign, and drive home."
+  },
+  {
+    "id": "faq-15",
+    "category": "visiting",
+    "question": "What is your response time for texts and form messages?",
+    "answer": "Tim usually replies within 15–30 minutes during business hours, and by early next morning for late-night inquiries."
+  },
+  {
+    "id": "faq-16",
+    "category": "visiting",
+    "question": "Is your dealership bilingual?",
+    "answer": "Yes. We have friendly Spanish-speaking staff ready to translate every detail, explain financing, and make sure you feel completely comfortable."
+  }
+]

@@ -7,26 +7,37 @@ interface MobileTabBarProps {
 }
 
 export default function MobileTabBar({ currentView, onNavigate }: MobileTabBarProps) {
-  const phone =
-    currentView === 'el-monte' ? LOCATIONS['el-monte'].phone : LOCATIONS['simi-valley'].phone;
+  const isElMonte = currentView === 'el-monte';
+  const isSimiValley = currentView === 'simi-valley';
+
+  const activeInventoryUrl = isElMonte
+    ? LOCATIONS['el-monte'].inventoryUrl
+    : LOCATIONS['simi-valley'].inventoryUrl;
+
+  const phone = isElMonte ? LOCATIONS['el-monte'].phone : LOCATIONS['simi-valley'].phone;
+
+  // "Our Lots": if on a specific lot page go to the other lot; otherwise go home to the locations grid
+  const handleLotsNav = () => {
+    if (isElMonte) onNavigate('simi-valley');
+    else if (isSimiValley) onNavigate('el-monte');
+    else onNavigate('home');
+  };
 
   const tabs = [
     {
       label: 'Stock',
       icon: Car,
-      onClick: () => window.open(LOCATIONS['simi-valley'].inventoryUrl, '_blank', 'noopener,noreferrer'),
+      onClick: () => window.open(activeInventoryUrl, '_blank', 'noopener,noreferrer'),
     },
     {
       label: 'Call Tim',
       icon: Phone,
-      onClick: () => {
-        window.location.href = `tel:${phone}`;
-      },
+      onClick: () => { window.location.href = `tel:${phone}`; },
     },
     {
       label: 'Our Lots',
       icon: MapPin,
-      onClick: () => onNavigate(currentView === 'el-monte' ? 'el-monte' : 'simi-valley'),
+      onClick: handleLotsNav,
     },
     {
       label: 'Apply',
