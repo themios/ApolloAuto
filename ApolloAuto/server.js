@@ -148,7 +148,11 @@ function themePayload(theme) {
 
 // Public theme (site styling)
 app.get("/api/theme", (req, res) => {
-  res.json(themePayload(getThemeSettings()));
+  const payload = themePayload(getThemeSettings());
+  const logoExts = [".png", ".svg", ".jpg", ".webp"];
+  const logoExt = logoExts.find((e) => fs.existsSync(path.join(IMAGES_DIR, `logo${e}`)));
+  payload.logoUrl = logoExt ? `/images/logo${logoExt}` : null;
+  res.json(payload);
 });
 
 // Admin theme

@@ -23,6 +23,19 @@
       link.setAttribute("data-apollo-theme-fonts", "1");
       document.head.appendChild(link);
     }
+
+    if (data.logoUrl) {
+      document.querySelectorAll("a.logo").forEach((logoEl) => {
+        if (logoEl.querySelector("img.site-logo")) return;
+        const img = document.createElement("img");
+        img.src = data.logoUrl;
+        img.alt = "Apollo Auto";
+        img.className = "site-logo";
+        img.style.cssText = "height:36px;width:auto;display:block;";
+        logoEl.innerHTML = "";
+        logoEl.appendChild(img);
+      });
+    }
   }
 
   fetch("/api/theme")
