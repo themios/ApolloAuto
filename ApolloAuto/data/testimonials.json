@@ -1,0 +1,72 @@
+[
+  {
+    "id": "review-1",
+    "quote": "This was the best interaction with a car sales person in a long time in my car buying career. Tim was great and had patience throughout the car buying process. I love my 2004 Lexus RX 330. I have always bought new cars and this is my first time buying used. If I need to buy another used car I would return to Apollo Auto.",
+    "name": "Google Review",
+    "location": "Apollo Auto",
+    "rating": 5
+  },
+  {
+    "id": "review-2",
+    "quote": "Best man to go to for any car. He will make sure to take care of you. I highly recommend stopping by to check it out, he won't let you down. 10/10.",
+    "name": "Google Review",
+    "location": "Apollo Auto",
+    "rating": 5
+  },
+  {
+    "id": "review-3",
+    "quote": "Exceptional customer service! My vehicle purchase was hassle free and smooth! I will definitely purchase another vehicle from here!",
+    "name": "Google Review",
+    "location": "Apollo Auto",
+    "rating": 5
+  },
+  {
+    "id": "review-4",
+    "quote": "What a great place to buy a car. Apollo Auto is number 1. Tim and Larry are very helpful and fair. Great options and very low prices.",
+    "name": "Google Review",
+    "location": "Apollo Auto",
+    "rating": 5
+  },
+  {
+    "id": "review-5",
+    "quote": "Great dealer, very helpful and super knowledgeable. Overall a very positive experience.",
+    "name": "Google Review",
+    "location": "Apollo Auto",
+    "rating": 5
+  },
+  {
+    "id": "review-6",
+    "quote": "I love my GMC Yukon XL I bought recently from Tim. He is very nice and professional, he doesn't put pressure on you and the purchasing process went smoothly.",
+    "name": "Google Review",
+    "location": "Apollo Auto",
+    "rating": 5
+  },
+  {
+    "id": "review-7",
+    "quote": "Absolutely fantastic experience! Amazing customer service and Tim's vehicles are very reliable and extremely well taken care of! If I'm ever looking in the market again this will be my first pick hands down! Highly recommended.",
+    "name": "Google Review",
+    "location": "Apollo Auto",
+    "rating": 5
+  },
+  {
+    "id": "review-8",
+    "quote": "Excellent service, A++. Tim the owner is the best. I highly recommend his services and excellent autos for sale.",
+    "name": "Google Review",
+    "location": "Apollo Auto",
+    "rating": 5
+  },
+  {
+    "id": "review-9",
+    "quote": "A wonderful selection of cars, especially if you're on a budget. The staff is friendly and caring.",
+    "name": "Google Review",
+    "location": "Apollo Auto",
+    "rating": 5
+  },
+  {
+    "id": "review-10",
+    "quote": "We had a great experience working with Tim at Apollo Auto. Tim is reliable and communicative, a genuine person. Everything about getting a car felt like working with family rather than someone we'd just met. The car we got is exactly what we'd been looking for. Thank you for going above and beyond!",
+    "name": "Google Review",
+    "location": "Apollo Auto",
+    "rating": 5
+  }
+]
