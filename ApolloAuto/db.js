@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const bcrypt = require("bcryptjs");
+const { DEFAULT_THEME, normalizeTheme } = require("./lib/theme");
 
 const dataDir = path.join(__dirname, "data");
 const dbPath = path.join(dataDir, "apollo.db");
@@ -28,6 +29,7 @@ function getDb() {
     initDb();
     seedAdmin();
     seedPosts();
+    seedThemeSettings();
     initialized = true;
   }
 
@@ -61,7 +63,43 @@ function initDb() {
 
     CREATE INDEX IF NOT EXISTS idx_posts_type ON posts(type);
     CREATE INDEX IF NOT EXISTS idx_posts_slug ON posts(slug);
+
+    CREATE TABLE IF NOT EXISTS site_settings (
+      key TEXT PRIMARY KEY,
+      value TEXT NOT NULL,
+      updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+    );
   `);
+}
+
+function seedThemeSettings() {
+  const row = getDb().prepare("SELECT value FROM site_settings WHERE key = 'theme'").get();
+  if (row) return;
+  getDb()
+    .prepare("INSERT INTO site_settings (key, value) VALUES ('theme', ?)")
+    .run(JSON.stringify(DEFAULT_THEME));
+}
+
+function getThemeSettings() {
+  const row = getDb().prepare("SELECT value FROM site_settings WHERE key = 'theme'").get();
+  if (!row) return normalizeTheme(DEFAULT_THEME);
+  try {
+    return normalizeTheme(JSON.parse(row.value));
+  } catch {
+    return normalizeTheme(DEFAULT_THEME);
+  }
+}
+
+function saveThemeSettings(theme) {
+  const normalized = normalizeTheme(theme);
+  const now = new Date().toISOString();
+  getDb()
+    .prepare(
+      `INSERT INTO site_settings (key, value, updated_at) VALUES ('theme', ?, ?)
+       ON CONFLICT(key) DO UPDATE SET value = excluded.value, updated_at = excluded.updated_at`
+    )
+    .run(JSON.stringify(normalized), now);
+  return normalized;
 }
 
 function slugify(text) {
@@ -73,17 +111,40 @@ function slugify(text) {
 }
 
 function seedAdmin() {
-  const email = process.env.ADMIN_EMAIL || "admin@apolloauto.us";
+  const email = (process.env.ADMIN_EMAIL || "admin@apolloauto.us").trim().toLowerCase();
   const password = process.env.ADMIN_PASSWORD;
   if (!password) {
     console.warn("Warning: ADMIN_PASSWORD not set. Admin user was not created.");
     return;
   }
+  const count = getDb().prepare("SELECT COUNT(*) AS c FROM admin_users").get().c;
+  if (count === 0) {
+    upsertAdmin(email, password);
+    console.log(`Admin user created for ${email}`);
+    return;
+  }
   const existing = getDb().prepare("SELECT id FROM admin_users WHERE email = ?").get(email);
-  if (existing) return;
+  if (!existing) {
+    upsertAdmin(email, password);
+    console.log(`Admin user created for ${email}`);
+  }
+}
+
+function upsertAdmin(email, password) {
+  const normalized = String(email).trim().toLowerCase();
+  if (!password) throw new Error("Password required");
   const hash = bcrypt.hashSync(password, 12);
-  getDb().prepare("INSERT INTO admin_users (email, password_hash) VALUES (?, ?)").run(email, hash);
-  console.log(`Admin user created for ${email}`);
+  const existing = getDb().prepare("SELECT id FROM admin_users WHERE email = ?").get(normalized);
+  if (existing) {
+    getDb()
+      .prepare("UPDATE admin_users SET password_hash = ? WHERE email = ?")
+      .run(hash, normalized);
+    return { created: false, email: normalized };
+  }
+  getDb()
+    .prepare("INSERT INTO admin_users (email, password_hash) VALUES (?, ?)")
+    .run(normalized, hash);
+  return { created: true, email: normalized };
 }
 
 function seedPosts() {
@@ -231,6 +292,7 @@ function deletePost(id) {
 
 module.exports = {
   getDb,
+  upsertAdmin,
   verifyAdmin,
   listPosts,
   getPostBySlug,
@@ -238,4 +300,6 @@ module.exports = {
   savePost,
   deletePost,
   slugify,
+  getThemeSettings,
+  saveThemeSettings,
 };

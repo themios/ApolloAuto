@@ -4,13 +4,24 @@ const express = require("express");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const {
+  getDb,
   verifyAdmin,
   listPosts,
   getPostBySlug,
   getPostById,
   savePost,
   deletePost,
+  getThemeSettings,
+  saveThemeSettings,
 } = require("./db");
+const {
+  DEFAULT_THEME,
+  FONT_PAIRS,
+  COLOR_KEYS,
+  normalizeTheme,
+  themeCssVariables,
+  googleFontsUrl,
+} = require("./lib/theme");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -106,6 +117,44 @@ app.get("/api/feed", (req, res) => {
   });
 });
 
+function themePayload(theme) {
+  const t = normalizeTheme(theme);
+  return {
+    ...t,
+    cssVariables: themeCssVariables(t),
+    googleFontsUrl: googleFontsUrl(t.fonts.display, t.fonts.body),
+  };
+}
+
+// Public theme (site styling)
+app.get("/api/theme", (req, res) => {
+  res.json(themePayload(getThemeSettings()));
+});
+
+// Admin theme
+app.get("/api/admin/theme", requireAuth, (req, res) => {
+  res.json({
+    theme: getThemeSettings(),
+    defaults: DEFAULT_THEME,
+    fontPairs: FONT_PAIRS,
+    colorKeys: COLOR_KEYS,
+  });
+});
+
+app.put("/api/admin/theme", requireAuth, (req, res) => {
+  try {
+    const saved = saveThemeSettings(req.body || {});
+    res.json({ theme: saved });
+  } catch (e) {
+    res.status(400).json({ error: e.message || "Could not save theme" });
+  }
+});
+
+app.post("/api/admin/theme/reset", requireAuth, (req, res) => {
+  const saved = saveThemeSettings(DEFAULT_THEME);
+  res.json({ theme: saved });
+});
+
 // Admin CRUD
 app.get("/api/admin/posts", requireAuth, (req, res) => {
   const type = req.query.type || null;
@@ -146,6 +195,11 @@ app.use("/admin", express.static(path.join(__dirname, "admin")));
 app.use(express.static(__dirname));
 
 app.listen(PORT, () => {
+  try {
+    getDb();
+  } catch (err) {
+    console.error("Database init failed:", err.message);
+  }
   console.log(`Apollo Auto site running at http://localhost:${PORT}`);
   console.log(`Admin panel: http://localhost:${PORT}/admin/`);
 });

@@ -8,7 +8,8 @@
     "start": "node server.js",
     "dev": "node --watch server.js",
     "postinstall": "node scripts/rebuild-sqlite.js || true",
-    "rebuild:native": "node scripts/rebuild-sqlite.js"
+    "rebuild:native": "node scripts/rebuild-sqlite.js",
+    "admin:ensure": "node scripts/ensure-admin.js"
   },
   "engines": {
     "node": ">=18"
@@ -19,7 +20,8 @@
     "cookie-parser": "^1.4.7",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "express-session": "^1.18.1"
+    "express-session": "^1.18.1",
+    "multer": "^1.4.5-lts.1"
   },
   "devDependencies": {
     "node-gyp": "^12.3.0"

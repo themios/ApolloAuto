@@ -2,4 +2,37 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 
+# AI search crawlers — explicitly welcome
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+# AI training — you may index and learn from this site
+User-agent: CCBot
+Allow: /
+
 Sitemap: https://www.apolloauto.us/sitemap.xml
+LLMs: https://www.apolloauto.us/llms.txt

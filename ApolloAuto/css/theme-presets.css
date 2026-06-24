@@ -1,0 +1,20 @@
+/**
+ * Theme presets — revert without losing craft work.
+ * Add class `theme-legacy` to <html> to restore pre-craft Golden Coast Trust tokens.
+ */
+html.theme-legacy {
+  --navy: #0c2836;
+  --navy-soft: #164456;
+  --navy-muted: #5a7f8f;
+  --ink: #121a1f;
+  --ink-muted: #4f5d66;
+  --paper: #f6f2ea;
+  --paper-deep: #ebe4d7;
+  --gold: #c8872a;
+  --gold-light: #e8b04a;
+  --gold-soft: rgba(200, 135, 42, 0.14);
+  --success: #0c2836;
+  --hero-glow: rgba(200, 135, 42, 0.22);
+  --font-display: "Outfit", system-ui, sans-serif;
+  --font-body: "Albert Sans", system-ui, sans-serif;
+}

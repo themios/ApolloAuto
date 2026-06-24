@@ -5,3 +5,5 @@ data/*.db-journal
 .DS_Store
 .venv-pdf/
 documents/.tmp-pages/
+*.seo-backup
+graphify-out/cache/

@@ -1,63 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.apolloauto.us/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <loc>https://www.apolloauto.us/admin/</loc>
+    <lastmod>2026-06-24</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.apolloauto.us/simi-valley-used-cars/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://www.apolloauto.us/apollo_auto_landing_page_mockup/</loc>
+    <lastmod>2026-06-24</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.apolloauto.us/el-monte-used-cars/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://www.apolloauto.us/blog/bad-credit-financing/</loc>
+    <lastmod>2026-06-24</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.apolloauto.us/help/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://www.apolloauto.us/blog/first-time-buyer-guide/</loc>
+    <lastmod>2026-06-24</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.apolloauto.us/blog/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-06-24</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.apolloauto.us/resources/</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://www.apolloauto.us/blog/post/</loc>
+    <lastmod>2026-06-24</lastmod>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.apolloauto.us/blog/trade-in-tips/</loc>
+    <lastmod>2026-06-24</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.apolloauto.us/blog/used-car-inspection-checklist/</loc>
+    <lastmod>2026-06-24</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.apolloauto.us/blog/what-to-bring-buying-used-car/</loc>
+    <lastmod>2026-06-24</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.apolloauto.us/el-monte-used-cars/</loc>
+    <lastmod>2026-06-24</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.apolloauto.us/graphify-out/graph/</loc>
+    <lastmod>2026-06-24</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.apolloauto.us/help/</loc>
+    <lastmod>2026-06-24</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.apolloauto.us/</loc>
+    <lastmod>2026-06-24</lastmod>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.apolloauto.us/resources/forms/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.apolloauto.us/blog/bad-credit-financing.html</loc>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-24</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.apolloauto.us/blog/used-car-inspection-checklist.html</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://www.apolloauto.us/resources/forms/view/</loc>
+    <lastmod>2026-06-24</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.apolloauto.us/blog/first-time-buyer-guide.html</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://www.apolloauto.us/resources/</loc>
+    <lastmod>2026-06-24</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.apolloauto.us/blog/trade-in-tips.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.apolloauto.us/blog/what-to-bring-buying-used-car.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://www.apolloauto.us/simi-valley-used-cars/</loc>
+    <lastmod>2026-06-24</lastmod>
+    <priority>0.9</priority>
   </url>
 </urlset>
