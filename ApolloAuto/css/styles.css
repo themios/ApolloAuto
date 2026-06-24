@@ -185,10 +185,8 @@ select:focus-visible,
 .location-spotlight {
   position: relative;
   z-index: 2;
-  padding: var(--space-xl) 0;
-  background: var(--white);
-  border-bottom: 1px solid var(--line);
-  box-shadow: var(--shadow-sm);
+  padding: var(--space-2xl) 0;
+  background: var(--navy);
 }
 .location-spotlight-grid {
   display: grid;
@@ -203,50 +201,42 @@ select:focus-visible,
 .location-spotlight-card {
   position: relative;
   padding: var(--space-xl) var(--space-xl) var(--space-lg);
-  border: 1px solid var(--line);
+  border: 1px solid oklch(1 0 0 / 0.12);
   border-radius: var(--radius-xl);
-  background: var(--paper);
-  box-shadow: var(--shadow-md);
-  transition: transform 0.2s var(--ease-out-expo), box-shadow 0.2s, border-color 0.2s;
+  background: oklch(0.22 0.03 220);
+  transition: transform 0.2s var(--ease-out-expo), border-color 0.2s;
 }
 .location-spotlight-card:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  border-color: var(--gold);
 }
-.location-spotlight-card--simi:hover { border-color: var(--navy-soft); }
-.location-spotlight-card--elmonte:hover { border-color: var(--gold); }
 .location-spotlight-title {
   margin: 0 0 var(--space-md);
   font-family: var(--font-display);
   font-size: clamp(1.35rem, 3vw, 1.65rem);
   font-weight: 700;
-  color: var(--navy);
+  color: var(--gold);
 }
 .location-spotlight-title a {
   color: inherit;
   text-decoration: none;
 }
 .location-spotlight-title a:hover {
-  color: var(--navy-soft);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  color: var(--gold-light);
 }
 .location-spotlight-card address {
   font-style: normal;
-  font-size: 0.95rem;
-  color: var(--ink-muted);
+  font-size: 0.9rem;
+  color: oklch(1 0 0 / 0.6);
   line-height: 1.55;
   margin-bottom: var(--space-sm);
 }
 .location-spotlight-card address a {
-  color: var(--ink-muted);
+  color: oklch(1 0 0 / 0.6);
   text-decoration: none;
-  font-style: normal;
 }
 .location-spotlight-card address a:hover {
-  color: var(--navy-soft);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  color: var(--white);
 }
 .footer-map-address a {
   color: inherit;
@@ -258,14 +248,20 @@ select:focus-visible,
 }
 .location-spotlight-card .visit-phone {
   margin: 0 0 var(--space-lg);
-  font-size: 1.05rem;
+  font-size: 1.15rem;
+  font-weight: 700;
 }
+.location-spotlight-card .visit-phone a {
+  color: var(--white);
+  text-decoration: none;
+}
+.location-spotlight-card .visit-phone a:hover { color: var(--gold-light); }
 .location-spotlight-card .visit-links {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-md);
   padding-top: var(--space-md);
-  border-top: 1px solid var(--line);
+  border-top: 1px solid oklch(1 0 0 / 0.12);
 }
 .location-spotlight-cta {
   display: inline-flex;
@@ -276,27 +272,26 @@ select:focus-visible,
   font-size: 0.875rem;
   font-weight: 700;
   text-decoration: none;
-  color: var(--white);
-  background: var(--navy);
+  color: var(--navy);
+  background: var(--gold);
   border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
   transition: background 0.15s, transform 0.15s var(--ease-out-expo);
 }
 .location-spotlight-cta:hover {
-  background: var(--navy-soft);
-  color: var(--white);
+  background: var(--gold-light);
+  color: var(--navy);
   text-decoration: none;
   transform: translateY(-1px);
 }
 .location-spotlight-cta--secondary {
-  color: var(--navy);
-  background: var(--white);
-  border: 1px solid var(--line);
+  color: var(--white);
+  background: transparent;
+  border: 1px solid oklch(1 0 0 / 0.25);
 }
 .location-spotlight-cta--secondary:hover {
-  color: var(--navy);
-  background: var(--gold-soft);
-  border-color: var(--navy-muted);
+  color: var(--white);
+  background: oklch(1 0 0 / 0.08);
+  border-color: oklch(1 0 0 / 0.4);
 }
 
 /* Live feed (admin) — below hero */
