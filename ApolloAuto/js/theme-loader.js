@@ -31,7 +31,7 @@
         img.src = data.logoUrl;
         img.alt = "Apollo Auto";
         img.className = "site-logo";
-        img.style.cssText = "height:36px;width:auto;display:block;";
+        img.style.cssText = "height:72px;width:auto;display:block;";
         logoEl.innerHTML = "";
         logoEl.appendChild(img);
       });
