@@ -15,6 +15,7 @@ const COLOR_LABELS = {
   goldLight: "Gold light",
   paper: "Background paper",
   paperDeep: "Paper deep",
+  white: "Background white",
   ink: "Text ink",
   inkMuted: "Muted text",
 };
@@ -36,6 +37,7 @@ const editorError = document.getElementById("editor-error");
 const panelTitle = document.getElementById("panel-title");
 const contentView = document.getElementById("content-view");
 const stylingView = document.getElementById("styling-view");
+const mediaView = document.getElementById("media-view");
 const newBtn = document.getElementById("new-btn");
 const themeForm = document.getElementById("theme-form");
 const themeError = document.getElementById("theme-error");
@@ -131,6 +133,12 @@ document.querySelectorAll(".nav-tab").forEach((btn) => {
       return;
     }
 
+    if (btn.dataset.view === "media") {
+      currentView = "media";
+      showMediaView();
+      return;
+    }
+
     currentView = "content";
     showContentView();
     currentType = btn.dataset.type;
@@ -144,16 +152,97 @@ document.querySelectorAll(".nav-tab").forEach((btn) => {
 function showContentView() {
   contentView.hidden = false;
   stylingView.hidden = true;
+  mediaView.hidden = true;
   newBtn.hidden = false;
 }
 
 function showStylingView() {
   contentView.hidden = true;
   stylingView.hidden = false;
+  mediaView.hidden = true;
   newBtn.hidden = true;
   themeSuccess.hidden = true;
   themeError.hidden = true;
   loadThemeEditor();
+}
+
+function showMediaView() {
+  contentView.hidden = true;
+  stylingView.hidden = true;
+  mediaView.hidden = false;
+  newBtn.hidden = true;
+  loadMedia();
+}
+
+async function loadMedia() {
+  const slotsEl = document.getElementById("media-slots");
+  const errorEl = document.getElementById("media-error");
+  errorEl.hidden = true;
+  slotsEl.innerHTML = "<p class='muted'>Loading…</p>";
+  try {
+    const slots = await api("/api/admin/images");
+    slotsEl.innerHTML = "";
+    for (const slot of slots) {
+      const card = document.createElement("div");
+      card.className = "media-card";
+      card.dataset.slot = slot.id;
+      card.innerHTML = `
+        <div class="media-thumb">
+          ${slot.url
+            ? `<img src="${slot.url}?t=${Date.now()}" alt="${slot.label}" />`
+            : `<span class="media-empty">No image</span>`}
+        </div>
+        <div class="media-info">
+          <strong>${slot.label}</strong>
+          <p class="field-hint">${slot.hint}</p>
+          <label class="btn btn-outline-dark media-upload-btn">
+            ${slot.url ? "Replace" : "Upload"}
+            <input type="file" accept="image/*" hidden data-slot="${slot.id}" />
+          </label>
+          ${slot.url ? `<button type="button" class="btn btn-danger-outline media-delete-btn" data-slot="${slot.id}">Remove</button>` : ""}
+        </div>
+      `;
+      slotsEl.appendChild(card);
+    }
+
+    slotsEl.querySelectorAll("input[type=file]").forEach((input) => {
+      input.addEventListener("change", async () => {
+        if (!input.files[0]) return;
+        const fd = new FormData();
+        fd.append("image", input.files[0]);
+        try {
+          const res = await fetch(`/api/admin/images/${input.dataset.slot}`, {
+            method: "POST",
+            credentials: "same-origin",
+            body: fd,
+          });
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.error || "Upload failed");
+          loadMedia();
+        } catch (e) {
+          errorEl.textContent = e.message;
+          errorEl.hidden = false;
+        }
+      });
+    });
+
+    slotsEl.querySelectorAll(".media-delete-btn").forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        if (!confirm("Remove this image?")) return;
+        try {
+          await api(`/api/admin/images/${btn.dataset.slot}`, { method: "DELETE" });
+          loadMedia();
+        } catch (e) {
+          errorEl.textContent = e.message;
+          errorEl.hidden = false;
+        }
+      });
+    });
+  } catch (e) {
+    slotsEl.innerHTML = "";
+    errorEl.textContent = "Could not load images.";
+    errorEl.hidden = false;
+  }
 }
 
 document.getElementById("new-btn").addEventListener("click", () => {
@@ -339,6 +428,8 @@ function populateFontPairs(pairs) {
 function fillThemeForm(theme) {
   document.getElementById("theme-preset").value = theme.preset || "craft";
   fontPairSelect.value = theme.fonts?.pairId || "sora-karla";
+  const radiusSelect = document.getElementById("theme-radius");
+  if (radiusSelect) radiusSelect.value = theme.radius || "default";
   for (const [key, value] of Object.entries(theme.colors || {})) {
     const picker = colorFields.querySelector(`input[type="color"][data-color-key="${key}"]`);
     const text = colorFields.querySelector(`.color-hex[data-color-key="${key}"]`);
@@ -354,10 +445,12 @@ function readThemeForm() {
   colorFields.querySelectorAll('input[type="color"]').forEach((picker) => {
     colors[picker.dataset.colorKey] = picker.value.toLowerCase();
   });
+  const radiusSelect = document.getElementById("theme-radius");
   return {
     preset: document.getElementById("theme-preset").value,
     colors,
     fonts: { pairId: fontPairSelect.value },
+    radius: radiusSelect ? radiusSelect.value : "default",
   };
 }
 

@@ -49,6 +49,7 @@
         <button type="button" class="nav-tab" data-view="content" data-type="news">News</button>
         <p class="nav-group-label">Site</p>
         <button type="button" class="nav-tab" data-view="styling">Styling</button>
+        <button type="button" class="nav-tab" data-view="media">Media</button>
       </nav>
 
       <main class="admin-main">
@@ -166,6 +167,19 @@
               <div id="color-fields" class="color-grid"></div>
             </div>
 
+            <div class="styling-section">
+              <h2>Border radius</h2>
+              <div class="field-row">
+                <label for="theme-radius">Corner style</label>
+                <select id="theme-radius">
+                  <option value="sharp">Sharp (2px)</option>
+                  <option value="default" selected>Default (4px)</option>
+                  <option value="rounded">Rounded (8px)</option>
+                </select>
+              </div>
+              <p class="field-hint">Controls buttons, cards, and form inputs across the site.</p>
+            </div>
+
             <div id="theme-preview" class="theme-preview" aria-hidden="true">
               <div class="theme-preview-chip" data-color="navy">Navy</div>
               <div class="theme-preview-chip" data-color="gold">Gold</div>
@@ -181,6 +195,15 @@
               <a href="/" target="_blank" rel="noopener" class="btn btn-outline-dark">Preview site ↗</a>
             </div>
           </form>
+        </div>
+
+        <div id="media-view" hidden="">
+          <div class="admin-toolbar">
+            <h1>Media</h1>
+          </div>
+          <p class="styling-intro muted">Upload the site logo and photos used in page sections. Images replace files on disk immediately.</p>
+          <div id="media-slots" class="media-grid"></div>
+          <p id="media-error" class="error" hidden=""></p>
         </div>
       </main>
     </div>

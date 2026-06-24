@@ -18,10 +18,30 @@ const {
   DEFAULT_THEME,
   FONT_PAIRS,
   COLOR_KEYS,
+  RADIUS_PRESETS,
   normalizeTheme,
   themeCssVariables,
   googleFontsUrl,
 } = require("./lib/theme");
+const multer = require("multer");
+const fs = require("fs");
+
+const IMAGES_DIR = path.join(__dirname, "images");
+const upload = multer({
+  storage: multer.diskStorage({
+    destination: (req, file, cb) => cb(null, IMAGES_DIR),
+    filename: (req, file, cb) => {
+      const slot = req.params.slot || "upload";
+      const ext = path.extname(file.originalname).toLowerCase() || ".jpg";
+      cb(null, `${slot}${ext}`);
+    },
+  }),
+  limits: { fileSize: 8 * 1024 * 1024 },
+  fileFilter: (req, file, cb) => {
+    if (/^image\/(jpeg|png|webp|gif|svg\+xml)$/.test(file.mimetype)) cb(null, true);
+    else cb(new Error("Images only"));
+  },
+});
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -138,7 +158,44 @@ app.get("/api/admin/theme", requireAuth, (req, res) => {
     defaults: DEFAULT_THEME,
     fontPairs: FONT_PAIRS,
     colorKeys: COLOR_KEYS,
+    radiusPresets: Object.keys(RADIUS_PRESETS),
   });
+});
+
+// Admin media
+const IMAGE_SLOTS = [
+  { id: "logo",          label: "Site logo",          hint: "Replaces the text logo in the header. PNG or SVG recommended." },
+  { id: "hero-car",      label: "Hero image (primary)",hint: "Main hero background car photo." },
+  { id: "hero-car-alt",  label: "Hero image (alt)",    hint: "Secondary hero image variant." },
+  { id: "lot-1",         label: "Lot photo 1",         hint: "Location / gallery photo." },
+  { id: "lot-2",         label: "Lot photo 2",         hint: "Location / gallery photo." },
+  { id: "lot-3",         label: "Lot photo 3",         hint: "Location / gallery photo." },
+];
+
+app.get("/api/admin/images", requireAuth, (req, res) => {
+  const slots = IMAGE_SLOTS.map((slot) => {
+    const exts = [".jpg", ".jpeg", ".png", ".webp", ".svg"];
+    const found = exts.find((e) => fs.existsSync(path.join(IMAGES_DIR, `${slot.id}${e}`)));
+    return { ...slot, url: found ? `/images/${slot.id}${found}` : null };
+  });
+  res.json(slots);
+});
+
+app.post("/api/admin/images/:slot", requireAuth, upload.single("image"), (req, res) => {
+  if (!req.file) return res.status(400).json({ error: "No file uploaded" });
+  const url = `/images/${req.file.filename}`;
+  res.json({ ok: true, url });
+});
+
+app.delete("/api/admin/images/:slot", requireAuth, (req, res) => {
+  const slot = req.params.slot;
+  const exts = [".jpg", ".jpeg", ".png", ".webp", ".svg"];
+  let deleted = false;
+  for (const ext of exts) {
+    const fp = path.join(IMAGES_DIR, `${slot}${ext}`);
+    if (fs.existsSync(fp)) { fs.unlinkSync(fp); deleted = true; }
+  }
+  res.json({ ok: deleted });
 });
 
 app.put("/api/admin/theme", requireAuth, (req, res) => {

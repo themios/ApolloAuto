@@ -7,6 +7,7 @@ const DEFAULT_THEME = {
     goldLight: "#e8b04a",
     paper: "#f6f2ea",
     paperDeep: "#ebe4d7",
+    white: "#fdfcfa",
     ink: "#121a1f",
     inkMuted: "#4f5d66",
   },
@@ -15,6 +16,13 @@ const DEFAULT_THEME = {
     display: "Sora",
     body: "Karla",
   },
+  radius: "default",
+};
+
+const RADIUS_PRESETS = {
+  sharp:   { "--radius": "2px",  "--radius-lg": "3px",  "--radius-xl": "4px"  },
+  default: { "--radius": "4px",  "--radius-lg": "6px",  "--radius-xl": "8px"  },
+  rounded: { "--radius": "8px",  "--radius-lg": "12px", "--radius-xl": "16px" },
 };
 
 const FONT_PAIRS = [
@@ -33,6 +41,7 @@ const CSS_VAR_MAP = {
   goldLight: "--gold-light",
   paper: "--paper",
   paperDeep: "--paper-deep",
+  white: "--white",
   ink: "--ink",
   inkMuted: "--ink-muted",
 };
@@ -58,6 +67,10 @@ function normalizeTheme(input) {
         base.colors[key] = val.toLowerCase();
       }
     }
+  }
+
+  if (typeof input.radius === "string" && RADIUS_PRESETS[input.radius]) {
+    base.radius = input.radius;
   }
 
   if (input.fonts && typeof input.fonts === "object") {
@@ -86,6 +99,7 @@ function themeCssVariables(theme) {
   vars["--success"] = t.colors.navySoft;
   vars["--font-display"] = `"${t.fonts.display}", system-ui, sans-serif`;
   vars["--font-body"] = `"${t.fonts.body}", system-ui, sans-serif`;
+  Object.assign(vars, RADIUS_PRESETS[t.radius] || RADIUS_PRESETS.default);
   return vars;
 }
 
@@ -99,6 +113,7 @@ module.exports = {
   DEFAULT_THEME,
   FONT_PAIRS,
   COLOR_KEYS,
+  RADIUS_PRESETS,
   CSS_VAR_MAP,
   normalizeTheme,
   validateTheme,
