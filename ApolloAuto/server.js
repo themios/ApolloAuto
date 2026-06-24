@@ -167,18 +167,37 @@ app.get("/api/admin/theme", requireAuth, (req, res) => {
 });
 
 // Admin media
+const HERO_SLIDES_FILE = path.join(__dirname, "data", "hero-slides.json");
+
+function readHeroSlides() {
+  try { return JSON.parse(fs.readFileSync(HERO_SLIDES_FILE, "utf8")); } catch { return []; }
+}
+function writeHeroSlides(slides) {
+  fs.writeFileSync(HERO_SLIDES_FILE, JSON.stringify(slides, null, 2));
+}
+
 const IMAGE_SLOTS = [
-  { id: "logo",          label: "Site logo",          hint: "Replaces the text logo in the header. PNG or SVG recommended." },
-  { id: "hero-car",      label: "Hero image (primary)",hint: "Main hero background car photo." },
-  { id: "hero-car-alt",  label: "Hero image (alt)",    hint: "Secondary hero image variant." },
-  { id: "lot-1",         label: "Lot photo 1",         hint: "Location / gallery photo." },
-  { id: "lot-2",         label: "Lot photo 2",         hint: "Location / gallery photo." },
-  { id: "lot-3",         label: "Lot photo 3",         hint: "Location / gallery photo." },
+  { id: "logo",        label: "Site logo",       hint: "Replaces the text logo in the header. PNG or SVG recommended." },
+  { id: "hero-slide-1", label: "Hero photo 1",   hint: "First image in the homepage hero carousel.", heroIndex: 0 },
+  { id: "hero-slide-2", label: "Hero photo 2",   hint: "Second image in the homepage hero carousel.", heroIndex: 1 },
+  { id: "hero-slide-3", label: "Hero photo 3",   hint: "Third image in the homepage hero carousel.", heroIndex: 2 },
+  { id: "hero-slide-4", label: "Hero photo 4",   hint: "Fourth image in the homepage hero carousel.", heroIndex: 3 },
+  { id: "lot-1",        label: "Lot photo 1",    hint: "Location / gallery photo." },
+  { id: "lot-2",        label: "Lot photo 2",    hint: "Location / gallery photo." },
+  { id: "lot-3",        label: "Lot photo 3",    hint: "Location / gallery photo." },
 ];
 
 app.get("/api/admin/images", requireAuth, (req, res) => {
+  const heroSlides = readHeroSlides();
+  const exts = [".jpg", ".jpeg", ".png", ".webp", ".svg"];
   const slots = IMAGE_SLOTS.map((slot) => {
-    const exts = [".jpg", ".jpeg", ".png", ".webp", ".svg"];
+    // For hero slides, check the JSON first, then fall back to local file
+    if (slot.heroIndex !== undefined) {
+      const slide = heroSlides[slot.heroIndex];
+      const localFile = exts.find((e) => fs.existsSync(path.join(IMAGES_DIR, `${slot.id}${e}`)));
+      const url = localFile ? `/images/${slot.id}${localFile}` : (slide?.src || null);
+      return { ...slot, url };
+    }
     const found = exts.find((e) => fs.existsSync(path.join(IMAGES_DIR, `${slot.id}${e}`)));
     return { ...slot, url: found ? `/images/${slot.id}${found}` : null };
   });
@@ -188,6 +207,17 @@ app.get("/api/admin/images", requireAuth, (req, res) => {
 app.post("/api/admin/images/:slot", requireAuth, upload.single("image"), (req, res) => {
   if (!req.file) return res.status(400).json({ error: "No file uploaded" });
   const url = `/images/${req.file.filename}`;
+  // If this is a hero slide, update hero-slides.json
+  const slotDef = IMAGE_SLOTS.find((s) => s.id === req.params.slot);
+  if (slotDef && slotDef.heroIndex !== undefined) {
+    const slides = readHeroSlides();
+    while (slides.length <= slotDef.heroIndex) slides.push({ src: "", alt: "Apollo Auto" });
+    slides[slotDef.heroIndex].src = url;
+    if (!slides[slotDef.heroIndex].alt || slides[slotDef.heroIndex].alt.includes("stock photo")) {
+      slides[slotDef.heroIndex].alt = "Apollo Auto inventory";
+    }
+    writeHeroSlides(slides);
+  }
   res.json({ ok: true, url });
 });
 
@@ -198,6 +228,15 @@ app.delete("/api/admin/images/:slot", requireAuth, (req, res) => {
   for (const ext of exts) {
     const fp = path.join(IMAGES_DIR, `${slot}${ext}`);
     if (fs.existsSync(fp)) { fs.unlinkSync(fp); deleted = true; }
+  }
+  // If hero slide, remove that entry from hero-slides.json
+  const slotDef = IMAGE_SLOTS.find((s) => s.id === slot);
+  if (slotDef && slotDef.heroIndex !== undefined) {
+    const slides = readHeroSlides();
+    if (slides[slotDef.heroIndex]) {
+      slides.splice(slotDef.heroIndex, 1);
+      writeHeroSlides(slides);
+    }
   }
   res.json({ ok: deleted });
 });
