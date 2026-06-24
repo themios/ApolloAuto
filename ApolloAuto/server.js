@@ -182,9 +182,9 @@ const IMAGE_SLOTS = [
   { id: "hero-slide-2", label: "Hero photo 2",   hint: "Second image in the homepage hero carousel.", heroIndex: 1 },
   { id: "hero-slide-3", label: "Hero photo 3",   hint: "Third image in the homepage hero carousel.", heroIndex: 2 },
   { id: "hero-slide-4", label: "Hero photo 4",   hint: "Fourth image in the homepage hero carousel.", heroIndex: 3 },
-  { id: "lot-1",        label: "Lot photo 1",    hint: "Location / gallery photo." },
-  { id: "lot-2",        label: "Lot photo 2",    hint: "Location / gallery photo." },
-  { id: "lot-3",        label: "Lot photo 3",    hint: "Location / gallery photo." },
+  { id: "lot-1",        label: "Simi Valley — lot photo",  hint: "Shown on the Simi Valley dealer page." },
+  { id: "lot-2",        label: "El Monte — main photo",    hint: "Shown on the El Monte dealer page and used as the social share image for El Monte." },
+  { id: "lot-3",        label: "El Monte — second photo",  hint: "Second photo on the El Monte dealer page. Also shown on the Simi Valley page." },
 ];
 
 app.get("/api/admin/images", requireAuth, (req, res) => {
