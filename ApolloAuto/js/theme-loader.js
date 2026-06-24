@@ -26,7 +26,7 @@
 
     if (data.logoUrl) {
       document.querySelectorAll("a.logo").forEach((logoEl) => {
-        if (logoEl.querySelector("img.site-logo")) return;
+        if (logoEl.querySelector("img.site-logo")) { logoEl.querySelector("img.site-logo").src = data.logoUrl; return; }
         const img = document.createElement("img");
         img.src = data.logoUrl;
         img.alt = "Apollo Auto";
