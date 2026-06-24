@@ -263,7 +263,7 @@ Keep your replies concise and easy to read using markdown bullets. Always ensure
     });
 
     const response = await ai.models.generateContent({
-      model: "gemini-3.5-flash",
+      model: "gemini-2.5-flash",
       contents: contents,
       config: {
         systemInstruction: systemInstruction,
@@ -310,8 +310,11 @@ app.get("/api/leads", requireAuth, (_req, res) => {
 
 app.post("/api/leads", (req, res) => {
   try {
-    const { name, phone, email, location, message, carInterest, creditStatus } = req.body;
+    const { name, phone, email, location, message, carInterest, creditStatus, _hp } = req.body;
+    if (_hp) return res.status(400).json({ error: "Bad request." }); // honeypot
     if (!name || !phone) return res.status(400).json({ error: "Name and phone number are required." });
+    const phoneDigits = String(phone).replace(/\D/g, '');
+    if (phoneDigits.length < 10) return res.status(400).json({ error: "A valid 10-digit phone number is required." });
     const leads = readJson(LEADS_FILE);
     const newLead = {
       id: "lead-" + Date.now(), date: new Date().toISOString(),

@@ -4,6 +4,153 @@ Project enhancements and new features. Newest entries first.
 
 ---
 
+## 2026-06-20 — Blog HTML editor in admin
+
+**Category:** UX, CMS
+
+**Migration:** none
+
+**Why:** Blog articles are stored and rendered as HTML; a plain textarea made formatting error-prone.
+
+**What was built:**
+
+- `admin/html-editor.js` — Quill-based rich text editor with headings, lists, links, blockquotes, and raw HTML toggle
+- `admin/index.html`, `admin/admin.js`, `admin/admin.css` — Blog posts use the visual editor; other content types keep a plain textarea
+- `css/styles.css` — Article styles for `h3`, `blockquote`, and links from editor output
+
+---
+
+## 2026-06-20 — Admin site styling (palette, fonts, presets)
+
+**Category:** UX, CMS, Design
+
+**Migration:** none (`site_settings` table created automatically on startup)
+
+**Why:** Admins need to adjust brand colors, typography, and design preset without editing CSS files.
+
+**What was built:**
+
+- `lib/theme.js` — Theme defaults, font pairs, validation, CSS variable mapping, Google Fonts URL builder
+- `db.js` — `site_settings` table, `getThemeSettings()` / `saveThemeSettings()`, default theme seed
+- `server.js` — Public `GET /api/theme`; admin `GET/PUT /api/admin/theme`, `POST /api/admin/theme/reset`
+- `js/theme-loader.js` — Fetches theme on public pages, applies CSS variables, fonts, and legacy preset class
+- `admin/index.html`, `admin/admin.js`, `admin/admin.css` — **Styling** nav section with preset, font pair, color pickers, save/reset
+- All public HTML pages — `<script src="…/js/theme-loader.js">` after `theme-presets.css`
+
+---
+
+## 2026-06-20 — Header Financing links to online application
+
+**Category:** UX, Integrations
+
+**Migration:** none
+
+**Why:** Top nav Financing should open the CarsForSale secure finance application, not scroll to the homepage section.
+
+**What was built:**
+
+- `index.html` — Desktop and mobile header Financing → `https://secure.carsforsale.com/ssfinance.aspx?jesxel=735107`
+- Subpage headers (`help/`, `blog/`, `resources/`, location pages) — same Financing URL in nav
+
+---
+
+## 2026-06-20 — Impeccable audit remediation
+
+**Category:** UX, Design, Accessibility
+
+**Migration:** none
+
+**Why:** Address typography split, missing focus states, card-grid monotony, and stale design docs from the craft v2 audit.
+
+**What was built:**
+
+- All public HTML pages — removed duplicate Outfit/Albert (and DM Sans) font links; added `theme-presets.css` beside `styles.css`
+- `css/styles.css` — global `:focus-visible` gold ring; trust pillars flattened to editorial two-column list (no card grid)
+- `index.html` — trust section markup updated; hero gallery dev caption hidden
+- `js/hero-gallery.js` — optional per-slide caption from JSON instead of hardcoded placeholder
+- `.impeccable.md` — typography, tokens, and UI pattern status updated to match craft v2
+
+---
+
+## 2026-06-20 — Navy checkmarks (replace green success accent)
+
+**Category:** UX, Design
+
+**Migration:** none
+
+**Why:** Trust checkmarks and success accents should use brand navy, not green.
+
+**What was built:**
+
+- `css/styles.css` — `--success` now aliases `--navy-soft`
+- `css/theme-presets.css` — legacy preset `--success` updated to navy-soft hex
+
+---
+
+## 2026-06-20 — El Monte Street View location link
+
+**Category:** UX
+
+**Migration:** none
+
+**Why:** El Monte address and directions should open the lot’s Street View pin, not a generic Maps search.
+
+**What was built:**
+
+- `index.html` — El Monte address, Directions button, and footer map links use Google Street View URL
+- `el-monte-used-cars/index.html` — Address and Get directions links updated to same Street View URL
+
+---
+
+## 2026-06-20 — Location card link reliability
+
+**Category:** UX, Bug fix
+
+**Migration:** none
+
+**Why:** Card links appeared broken on mobile (popup blockers silencing `target="_blank"`) and inventory destinations were hard to tap.
+
+**What was built:**
+
+- `index.html` — Location card links navigate in the same tab; Simi address is now a Maps link; dealer page + Directions use button-style classes
+- `css/styles.css` — `z-index` stacking on spotlight section; `.location-spotlight-cta` buttons with 44px min touch height
+
+---
+
+**Category:** UX
+
+**Migration:** none
+
+**Why:** Both lots should be immediately visible above the fold; welcome/special admin feed is secondary to location discovery.
+
+**What was built:**
+
+- `index.html` — New `location-spotlight` section below header with Simi Valley & El Monte cards; `site-updates` feed moved below hero; duplicate cards removed from visit section
+- `css/styles.css` — Spotlight card styles; visit grid simplified to copy + photos
+
+---
+
+## 2026-06-20 — Homepage craft redesign (Impeccable v2)
+
+**Category:** UX, Design
+
+**Migration:** none
+
+**Why:** Tim wanted a bolder, editorial homepage with prominent social proof, pathway navigation, and stock imagery — while keeping changes reversible and CMS-ready.
+
+**What was built:**
+
+- `index.html` — Hero gallery, prominent testimonial carousel, shop-by-need pathways, 3-step process, trust pillars; Unsplash stock photos; AggregateRating schema
+- `css/styles.css` — OKLCH tokens, Sora/Karla typography, craft component styles; removed side-stripe border accents
+- `css/theme-presets.css` — Revert to legacy Golden Coast Trust via `html.theme-legacy`
+- `data/testimonials.json`, `data/hero-slides.json` — CMS-ready content (static JSON for now)
+- `js/testimonials-carousel.js` — Accessible carousel with autoplay pause, keyboard, reduced motion
+- `js/hero-gallery.js` — Rotating hero imagery from JSON
+
+**Revert:** Add class `theme-legacy` to `<html>` or `git checkout` pre-craft files.
+
+---
+
 ## 2026-05-27 — Golden Coast Trust visual redesign
 
 **Category:** UX, Design

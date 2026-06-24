@@ -14,7 +14,8 @@ export default function ContactForm({ initialLocation, onLeadSubmitted }: Contac
     location: initialLocation || 'simi-valley',
     carInterest: 'safe-daily',
     creditStatus: 'rebuilding',
-    message: ''
+    message: '',
+    _hp: '' // honeypot — bots fill this, humans leave it blank
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -30,17 +31,23 @@ export default function ContactForm({ initialLocation, onLeadSubmitted }: Contac
   ];
 
   const creditTiers = [
-    { value: 'rebuilding', label: 'Rebuilding Credit / Past Repossession' },
-    { value: 'no-history', label: 'First-Time Buyer / No Credit History' },
-    { value: 'bankruptcy', label: 'Active Bankruptcy / Recovery' },
-    { value: 'fair-credit', label: 'Fair Credit (580 - 660)' },
+    { value: 'rebuilding', label: 'Credit Rebuilding — Second Chance' },
+    { value: 'no-history', label: 'First-Time Buyer / No History Yet' },
+    { value: 'bankruptcy', label: 'Working Through Bankruptcy' },
+    { value: 'fair-credit', label: 'Fair Credit (580–660)' },
     { value: 'good-credit', label: 'Good Credit (660+)' }
   ];
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    if (formData._hp) return; // honeypot triggered — silently drop bot submissions
     if (!formData.name || !formData.phone) {
       setErrorMsg('Name and phone are required so Tim can reach you.');
+      return;
+    }
+    const phoneDigits = formData.phone.replace(/\D/g, '');
+    if (phoneDigits.length < 10) {
+      setErrorMsg('Please enter a valid 10-digit phone number.');
       return;
     }
 
@@ -58,7 +65,8 @@ export default function ContactForm({ initialLocation, onLeadSubmitted }: Contac
           location: formData.location === 'simi-valley' ? 'Simi Valley Lot' : 'El Monte Lot',
           message: formData.message || `Interested in ${formData.carInterest} options`,
           carInterest: carInterests.find(c => c.value === formData.carInterest)?.label,
-          creditStatus: creditTiers.find(c => c.value === formData.creditStatus)?.label
+          creditStatus: creditTiers.find(c => c.value === formData.creditStatus)?.label,
+          _hp: formData._hp
         })
       });
 
@@ -314,6 +322,20 @@ export default function ContactForm({ initialLocation, onLeadSubmitted }: Contac
             value={formData.message}
             onChange={e => setFormData({ ...formData, message: e.target.value })}
             className="form-field w-full bg-paper/20 border border-gray-100 focus:border-gold focus:outline-none focus:bg-white transition-all text-navy min-h-[6rem] py-3"
+          />
+        </div>
+
+        {/* Honeypot — hidden from real users, bots fill it in */}
+        <div aria-hidden="true" className="absolute -left-[9999px] w-0 h-0 overflow-hidden">
+          <label htmlFor="cf-website">Website</label>
+          <input
+            id="cf-website"
+            type="text"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            value={formData._hp}
+            onChange={e => setFormData({ ...formData, _hp: e.target.value })}
           />
         </div>
 

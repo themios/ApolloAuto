@@ -30,6 +30,14 @@ npm start
 
 Default admin email is `admin@apolloauto.us` (override with `ADMIN_EMAIL` in `.env`). The password is whatever you set as `ADMIN_PASSWORD` on first run.
 
+If login returns **401 Invalid email or password**, the admin account may not exist yet (common when `.env` was added after the DB was created). Run:
+
+```bash
+npm run admin:ensure
+```
+
+Then restart `npm start` and sign in with the email and password from `.env`.
+
 ## Static-only preview
 
 ```bash

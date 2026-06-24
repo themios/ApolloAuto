@@ -110,20 +110,6 @@ export default function App() {
               <HeroDecor />
               <div className="absolute bottom-0 left-0 right-0 h-16 bg-paper pointer-events-none" aria-hidden="true" />
 
-              {/* Scrolling welcome ticker */}
-              <div className="relative z-10 overflow-hidden border-b border-white/15 bg-white/10 mb-8">
-                <div className="ticker-track flex whitespace-nowrap py-2.5 text-sm font-bold text-white/95">
-                  {[...Array(2)].map((_, loop) => (
-                    <span key={loop} className="inline-flex items-center gap-8 px-8">
-                      <span>☀️ Open Mon–Sat 9–6</span>
-                      <span>🚗 Smog-certified inventory</span>
-                      <span>✅ All credit welcome</span>
-                      <span>📍 Simi Valley & El Monte</span>
-                      <span>📞 Talk to Tim directly</span>
-                    </span>
-                  ))}
-                </div>
-              </div>
 
               <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start relative z-10 px-4 sm:px-6 lg:px-8">
                 <div className="lg:col-span-7 space-y-7 reveal-entry">
@@ -135,7 +121,7 @@ export default function App() {
                   {/* H1 and subhead FIRST — establish who we are before showing locations */}
                   <div className="space-y-4">
                     <h1 className="heading-display text-[2rem] sm:text-5xl lg:text-[3.25rem] text-white text-balance">
-                      Reliable cars for families who depend on them
+                      Used Cars in Simi Valley & El Monte — Built for Families
                     </h1>
                     <p className="text-lg sm:text-xl text-sky-light max-w-xl leading-relaxed">
                       Honest used cars, clear pricing, and help getting approved. You talk to real people you can call, not a different salesperson every time.
@@ -193,12 +179,6 @@ export default function App() {
                     ))}
                   </div>
 
-                  <div className="p-4 rounded-2xl bg-sun/20 border-2 border-sun/40 flex items-start gap-3">
-                    <AlertCircle className="w-5 h-5 text-lemon shrink-0 mt-0.5" />
-                    <p className="text-sm sm:text-base text-white leading-relaxed">
-                      <strong className="text-lemon">Heads up:</strong> We share inventory between both lots. Call or text Tim before you drive over if you want a specific car waiting at your location.
-                    </p>
-                  </div>
                 </div>
 
                 <div className="lg:col-span-5 reveal-entry reveal-delay-2 lg:sticky lg:top-28">
@@ -1091,32 +1071,6 @@ export default function App() {
                 </span>
               </div>
             </div>
-          </div>
-
-          {/* Local SEO Details Collapse Block */}
-          <div className="pt-6 border-t border-white/20 text-sm">
-            <details className="group cursor-pointer select-none">
-              <summary className="list-none flex items-center space-x-1 hover:text-lemon text-sm font-bold uppercase tracking-widest text-white/90">
-                <span>View local Google SEO Coordinates Schema</span>
-                <span className="transition-transform group-open:rotate-180">↓</span>
-              </summary>
-              <div className="p-4 bg-white/12 rounded-xl border border-white/20 mt-3 space-y-4 font-sans text-sm leading-relaxed text-white/90">
-                <div>
-                  <h5 className="font-bold text-lemon mb-1">Local Business NAP Identifiers (Local Schema)</h5>
-                  <p>
-                    <strong className="text-white">Business:</strong> Apollo Auto (Family-Owned Licensee Database) <br />
-                    <strong className="text-white">Coordinates Simi:</strong> 1555 Simi Town Center Way, Suite 420, Simi Valley, Ventura County, CA 93065 | Phone: (805) 404-3873 <br />
-                    <strong className="text-white">Coordinates El Monte:</strong> 10915 Garvey Ave, El Monte, Los Angeles County, CA 91733 | Phone: (626) 215-0440
-                  </p>
-                </div>
-                <div>
-                  <h5 className="font-bold text-lemon mb-1">Primary Keywords Targeted</h5>
-                  <p>
-                    Used Cars Simi Valley, Used Car Dealer Simi Valley, Reliable Commuter Cars Thousand Oaks Moorpark, Used Cars El Monte, Used Cars for Sale El Monte, Bad Credit used car financing Los Angeles Ventura, Second-chance auto loans Southern California, California trade-ins.
-                  </p>
-                </div>
-              </div>
-            </details>
           </div>
 
           {/* Legal credit */}
