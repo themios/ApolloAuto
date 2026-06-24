@@ -779,7 +779,7 @@ select:focus-visible,
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--navy);
-  background: var(--gold-soft);
+  background: var(--gold);
   border-radius: var(--radius-lg);
 }
 .visit-card h3 { margin: 0 0 0.5rem; color: var(--navy); }
